@@ -99,15 +99,9 @@
 #define E2_ENABLE_PIN      PC4
 
 //
-<<<<<<< HEAD
-// Heaters / Fans - INFO: Extruders ports are in reverse order. Pin numbers here differ from schematic. Original firmware assumes heater, fan and temp sensor on port EXT0 PB0, PB9, PC2. 
-//
-#define HEATER_0_PIN       PB0   // EXT0 port. 
-=======
 // Heaters / Fans - INFO: Extruders ports are in reverse order. Pin numbers here differ from schematic. Original firmware assumes heater, fan and temp sensor on port EXT0 PB0, PB9, PC2.
 //
 #define HEATER_0_PIN       PB0   // EXT0 port.
->>>>>>> b2c670fd946ec3760565ccad2fcb290fbe2f8fec
 #define HEATER_1_PIN       PB5   // EXT1 port
 #define HEATER_2_PIN       PB4   // EXT2 port
 #define HEATER_BED_PIN     PB1   // CON2X3 hotbed port
