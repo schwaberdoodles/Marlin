@@ -702,7 +702,7 @@
 //#define Z2_DRIVER_TYPE A4988
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
-//#define E0_DRIVER_TYPE TMC2209
+#define E0_DRIVER_TYPE TMC2209
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -754,7 +754,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 2924.50 } // Andy: set the Nimbler3 ESteps in firmware
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 2700 } // Andy: set the Nimbler3 ESteps in firmware
 
 /**
  * Default Max Feed Rate (mm/s)
