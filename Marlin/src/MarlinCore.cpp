@@ -892,9 +892,11 @@ void setup() {
     #endif
   #endif
 
-  #if HAS_FILAMENT_SENSOR
-    runout.setup();
-  #endif
+ // Fix MINI E3 SKR Filament Sensor
+ // https://github.com/bigtreetech/smart-filament-detection-module/issues/1
+ // #if HAS_FILAMENT_SENSOR
+ //   runout.setup();
+ // #endif
 
   #if ENABLED(POWER_LOSS_RECOVERY)
     recovery.setup();
@@ -921,6 +923,9 @@ void setup() {
       serial_connect_timeout = millis() + 1000UL;
       while (!MYSERIAL1 && PENDING(millis(), serial_connect_timeout)) { /*nada*/ }
     #endif
+  #endif
+  #if HAS_FILAMENT_SENSOR
+    runout.setup();
   #endif
 
   SERIAL_ECHOLNPGM("start");
