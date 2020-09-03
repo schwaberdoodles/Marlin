@@ -16,7 +16,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -28,11 +32,18 @@
 #endif
 
 #define DEFAULT_MACHINE_NAME "STM32F446VET6"
+<<<<<<< HEAD
 #define BOARD_NAME           "STM32F4 VAkE"
 
 //#define I2C_EEPROM
 
 #define E2END 0xFFF                               // EEPROM end address (4kB)
+=======
+#define BOARD_INFO_NAME      "STM32F4 VAkE"
+
+//#define I2C_EEPROM
+#define MARLIN_EEPROM_SIZE                0x1000  // 4KB
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Servos
@@ -135,7 +146,13 @@
 #define FAN1_PIN                            PB5   // PA0
 #define FAN2_PIN                            PB4   // PA1
 
+<<<<<<< HEAD
 #define ORIG_E0_AUTO_FAN_PIN                PD13  // Use this by NOT overriding E0_AUTO_FAN_PIN
+=======
+#ifndef E0_AUTO_FAN_PIN
+  #define E0_AUTO_FAN_PIN                   PD13
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Misc. Functions
@@ -146,7 +163,11 @@
 //#define NEOPIXEL_PIN                      PF13
 
 //
+<<<<<<< HEAD
 // Prusa i3 MK2 Multi Material Multiplexer Support
+=======
+// Průša i3 MK2 Multi Material Multiplexer Support
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 //
 //#define E_MUX0_PIN                        PG3
 //#define E_MUX1_PIN                        PG4
@@ -183,6 +204,7 @@
 //
 // ST7920 Delays
 //
+<<<<<<< HEAD
 #ifndef ST7920_DELAY_1
   #define ST7920_DELAY_1            DELAY_NS(96)
 #endif
@@ -191,4 +213,14 @@
 #endif
 #ifndef ST7920_DELAY_3
   #define ST7920_DELAY_3           DELAY_NS(715)
+=======
+#ifndef BOARD_ST7920_DELAY_1
+  #define BOARD_ST7920_DELAY_1      DELAY_NS(96)
+#endif
+#ifndef BOARD_ST7920_DELAY_2
+  #define BOARD_ST7920_DELAY_2      DELAY_NS(48)
+#endif
+#ifndef BOARD_ST7920_DELAY_3
+  #define BOARD_ST7920_DELAY_3     DELAY_NS(715)
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif

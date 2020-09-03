@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -166,8 +166,16 @@
 
 #define FAN_PIN                               57  // PC4   E1_FAN   PWM pin, Part cooling fan FET
 #define FAN1_PIN                              58  // PC5   E2_FAN   PWM pin, Extruder fan FET
+<<<<<<< HEAD:Marlin/src/pins/stm32f4/pins_STEVAL_3DP001V1.h
 #define ORIG_E0_AUTO_FAN_PIN            FAN1_PIN
 #define FAN2_PIN                              59  // PE8   E3_FAN   PWM pin, Controller fan FET
+=======
+#define FAN2_PIN                              59  // PE8   E3_FAN   PWM pin, Controller fan FET
+
+#ifndef E0_AUTO_FAN_PIN
+  #define E0_AUTO_FAN_PIN                     58  // FAN1_PIN
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:Marlin/src/pins/stm32f4/pins_STEVAL_3DP001V1.h
 
 //
 // Misc functions
@@ -239,11 +247,19 @@
   #define SDCARD_CONNECTION              ONBOARD
 #endif
 
+<<<<<<< HEAD:Marlin/src/pins/stm32f4/pins_STEVAL_3DP001V1.h
 #if SDCARD_CONNECTION == ONBOARD
+=======
+#if SD_CONNECTION_IS(ONBOARD)
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:Marlin/src/pins/stm32f4/pins_STEVAL_3DP001V1.h
   #define SDIO_SUPPORT                            // Use SDIO for onboard SD
 
   #ifndef SDIO_SUPPORT
     #define SOFTWARE_SPI                          // Use soft SPI for onboard SD
+<<<<<<< HEAD:Marlin/src/pins/stm32f4/pins_STEVAL_3DP001V1.h
+=======
+    #undef SDSS
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:Marlin/src/pins/stm32f4/pins_STEVAL_3DP001V1.h
     #define SDSS                     SDIO_D3_PIN
     #define SCK_PIN                  SDIO_CK_PIN
     #define MISO_PIN                 SDIO_D0_PIN

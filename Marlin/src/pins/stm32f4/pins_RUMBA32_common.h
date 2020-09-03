@@ -16,13 +16,21 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
 
 /**
  * Common pin assignments for all RUMBA32 boards
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  */
 
 #ifndef STM32F4
@@ -31,6 +39,7 @@
   #error "RUMBA32 boards support up to 3 hotends / E-steppers."
 #endif
 
+<<<<<<< HEAD
 #define RUMBA32_V1_0
 #define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
 
@@ -39,6 +48,24 @@
   #undef E2END
 #endif
 #define E2END 0xFFF                               // 4KB
+=======
+#define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
+
+// Use soft PWM for fans - PWM is not working properly when paired with STM32 Arduino Core v1.7.0
+// This can be removed when Core version is updated and PWM behaviour is fixed.
+#define FAN_SOFT_PWM
+
+//
+// Configure Timers
+// TIM6 is used for TONE
+// TIM7 is used for SERVO
+// TIMER_SERIAL defaults to TIM7 so we'll override it here
+//
+#define STEP_TIMER                            10
+#define TEMP_TIMER                            14
+#define TIMER_SERIAL                        TIM9
+#define HAL_TIMER_RATE                     F_CPU
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Limit Switches
@@ -83,6 +110,21 @@
 #define E2_ENABLE_PIN                       PD0
 #define E2_CS_PIN                           PD1
 
+<<<<<<< HEAD
+=======
+#if ENABLED(TMC_USE_SW_SPI)
+  #ifndef TMC_SW_MOSI
+    #define TMC_SW_MOSI                     PA7
+  #endif
+  #ifndef TMC_SW_MISO
+    #define TMC_SW_MISO                     PA6
+  #endif
+  #ifndef TMC_SW_SCK
+    #define TMC_SW_SCK                      PA5
+  #endif
+#endif
+
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 //
 // Temperature Sensors
 //
@@ -104,7 +146,11 @@
 #define FAN1_PIN                            PA8
 
 //
+<<<<<<< HEAD
 // I2C
+=======
+// SPI
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 //
 #define SCK_PIN                             PA5
 #define MISO_PIN                            PA6
@@ -146,4 +192,20 @@
     #define LCD_PINS_D7                     PE15
   #endif
 
+<<<<<<< HEAD
+=======
+  // Alter timing for graphical display
+  #if HAS_GRAPHICAL_LCD
+    #ifndef BOARD_ST7920_DELAY_1
+      #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+      #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+      #define BOARD_ST7920_DELAY_3 DELAY_NS(600)
+    #endif
+  #endif
+
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif

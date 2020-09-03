@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -59,43 +59,9 @@ constexpr uint8_t DGUS_CMD_READVAR = 0x83;
   bool dguslcd_local_debug; // = false;
 #endif
 
-#if ENABLED(DGUS_FILAMENT_LOADUNLOAD)
-  typedef struct  {
-    ExtUI::extruder_t extruder; // which extruder to operate
-    uint8_t action; // load or unload
-    bool heated; // heating done ?
-    float purge_length; // the length to extrude before unload, prevent filament jam
-  } filament_data_t;
-  static filament_data_t filament_data;
-#endif
-
-uint16_t DGUSScreenVariableHandler::ConfirmVP;
-
-#if ENABLED(SDSUPPORT)
-  int16_t DGUSScreenVariableHandler::top_file = 0;
-  int16_t DGUSScreenVariableHandler::file_to_print = 0;
-  static ExtUI::FileList filelist;
-#endif
-
-void (*DGUSScreenVariableHandler::confirm_action_cb)() = nullptr;
-
-//DGUSScreenVariableHandler ScreenHandler;
-
-DGUSLCD_Screens DGUSScreenVariableHandler::current_screen;
-DGUSLCD_Screens DGUSScreenVariableHandler::past_screens[NUM_PAST_SCREENS];
-uint8_t DGUSScreenVariableHandler::update_ptr;
-uint16_t DGUSScreenVariableHandler::skipVP;
-bool DGUSScreenVariableHandler::ScreenComplete;
-
-//DGUSDisplay dgusdisplay;
-
-rx_datagram_state_t DGUSDisplay::rx_datagram_state = DGUS_IDLE;
-uint8_t DGUSDisplay::rx_datagram_len = 0;
-bool DGUSDisplay::Initialized = false;
-bool DGUSDisplay::no_reentrance = false;
-
 #define dgusserial DGUS_SERIAL
 
+<<<<<<< HEAD
 // endianness swap
 uint16_t swap16(const uint16_t value) { return (value & 0xffU) << 8U | (value >> 8U); }
 
@@ -1160,6 +1126,8 @@ void DGUSDisplay::loop() {
   }
 }
 
+=======
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 void DGUSDisplay::InitDisplay() {
   dgusserial.begin(DGUS_BAUDRATE);
 
@@ -1192,6 +1160,35 @@ void DGUSDisplay::WriteVariable(uint16_t adr, const void* values, uint8_t values
   }
 }
 
+void DGUSDisplay::WriteVariable(uint16_t adr, uint16_t value) {
+  value = (value & 0xffU) << 8U | (value >> 8U);
+  WriteVariable(adr, static_cast<const void*>(&value), sizeof(uint16_t));
+}
+
+void DGUSDisplay::WriteVariable(uint16_t adr, int16_t value) {
+  value = (value & 0xffU) << 8U | (value >> 8U);
+  WriteVariable(adr, static_cast<const void*>(&value), sizeof(uint16_t));
+}
+
+void DGUSDisplay::WriteVariable(uint16_t adr, uint8_t value) {
+  WriteVariable(adr, static_cast<const void*>(&value), sizeof(uint8_t));
+}
+
+void DGUSDisplay::WriteVariable(uint16_t adr, int8_t value) {
+  WriteVariable(adr, static_cast<const void*>(&value), sizeof(int8_t));
+}
+
+void DGUSDisplay::WriteVariable(uint16_t adr, long value) {
+    union { long l; char lb[4]; } endian;
+    char tmp[4];
+    endian.l = value;
+    tmp[0] = endian.lb[3];
+    tmp[1] = endian.lb[2];
+    tmp[2] = endian.lb[1];
+    tmp[3] = endian.lb[0];
+    WriteVariable(adr, static_cast<const void*>(&tmp), sizeof(long));
+}
+
 void DGUSDisplay::WriteVariablePGM(uint16_t adr, const void* values, uint8_t valueslen, bool isstr) {
   const char* myvalues = static_cast<const char*>(values);
   bool strend = !myvalues;
@@ -1205,41 +1202,6 @@ void DGUSDisplay::WriteVariablePGM(uint16_t adr, const void* values, uint8_t val
     }
     dgusserial.write(x);
   }
-}
-
-void DGUSScreenVariableHandler::GotoScreen(DGUSLCD_Screens screen, bool ispopup) {
-  dgusdisplay.RequestScreen(screen);
-  UpdateNewScreen(screen, ispopup);
-}
-
-bool DGUSScreenVariableHandler::loop() {
-  dgusdisplay.loop();
-
-  const millis_t ms = millis();
-  static millis_t next_event_ms = 0;
-
-  if (!IsScreenComplete() || ELAPSED(ms, next_event_ms)) {
-    next_event_ms = ms + DGUS_UPDATE_INTERVAL_MS;
-    UpdateScreenVPData();
-  }
-
-  #if ENABLED(SHOW_BOOTSCREEN)
-    static bool booted = false;
-    #if ENABLED(POWER_LOSS_RECOVERY)
-      if (!booted && recovery.valid()) booted = true;
-    #endif
-    if (!booted && ELAPSED(ms, BOOTSCREEN_TIMEOUT)) {
-      booted = true;
-      GotoScreen(DGUSLCD_SCREEN_MAIN);
-    }
-  #endif
-  return IsScreenComplete();
-}
-
-void DGUSDisplay::RequestScreen(DGUSLCD_Screens screen) {
-  DEBUG_ECHOLNPAIR("GotoScreen ", screen);
-  const unsigned char gotoscreen[] = { 0x5A, 0x01, (unsigned char) (screen >> 8U), (unsigned char) (screen & 0xFFU) };
-  WriteVariable(0x84, gotoscreen, sizeof(gotoscreen));
 }
 
 void DGUSDisplay::ProcessRx() {
@@ -1312,7 +1274,7 @@ void DGUSDisplay::ProcessRx() {
         |           Command          DataLen (in Words) */
         if (command == DGUS_CMD_READVAR) {
           const uint16_t vp = tmp[0] << 8 | tmp[1];
-          const uint8_t dlen = tmp[2] << 1;  // Convert to Bytes. (Display works with words)
+          //const uint8_t dlen = tmp[2] << 1;  // Convert to Bytes. (Display works with words)
           //DEBUG_ECHOPAIR(" vp=", vp, " dlen=", dlen);
           DGUS_VP_Variable ramcopy;
           if (populate_VPVar(vp, &ramcopy)) {
@@ -1349,7 +1311,30 @@ void DGUSDisplay::WritePGM(const char str[], uint8_t len) {
   while (len--) dgusserial.write(pgm_read_byte(str++));
 }
 
+void DGUSDisplay::loop() {
+  // protect against recursion… ProcessRx() may indirectly call idle() when injecting gcode commands.
+  if (!no_reentrance) {
+    no_reentrance = true;
+    ProcessRx();
+    no_reentrance = false;
+  }
+}
+
+rx_datagram_state_t DGUSDisplay::rx_datagram_state = DGUS_IDLE;
+uint8_t DGUSDisplay::rx_datagram_len = 0;
+bool DGUSDisplay::Initialized = false;
+bool DGUSDisplay::no_reentrance = false;
+
 // A SW memory barrier, to ensure GCC does not overoptimize loops
 #define sw_barrier() asm volatile("": : :"memory");
+
+bool populate_VPVar(const uint16_t VP, DGUS_VP_Variable * const ramcopy) {
+  // DEBUG_ECHOPAIR("populate_VPVar ", VP);
+  const DGUS_VP_Variable *pvp = DGUSLCD_FindVPVar(VP);
+  // DEBUG_ECHOLNPAIR(" pvp ", (uint16_t )pvp);
+  if (!pvp) return false;
+  memcpy_P(ramcopy, pvp, sizeof(DGUS_VP_Variable));
+  return true;
+}
 
 #endif // HAS_DGUS_LCD

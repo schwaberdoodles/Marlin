@@ -16,7 +16,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -28,7 +32,11 @@
 #endif
 
 #ifndef BOARD_INFO_NAME
+<<<<<<< HEAD
   #define BOARD_NAME "MKS_ROBIN2"
+=======
+  #define BOARD_INFO_NAME "MKS_ROBIN2"
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 #ifndef DEFAULT_MACHINE_NAME

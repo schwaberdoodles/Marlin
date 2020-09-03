@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -29,8 +29,8 @@
  * Applies to PICA, PICA_REVB
  */
 
-#ifndef BOARD_NAME
-  #define BOARD_NAME "PICA"
+#ifndef BOARD_INFO_NAME
+  #define BOARD_INFO_NAME "PICA"
 #endif
 
 /*
@@ -47,6 +47,12 @@
 #endif
 
 //
+// Servos
+//
+#define SERVO0_PIN                             3
+#define SERVO1_PIN                             4
+#define SERVO2_PIN                             5
+//
 // Limit Switches
 //
 #define X_MIN_PIN                             14
@@ -62,6 +68,7 @@
 #define X_STEP_PIN                            55
 #define X_DIR_PIN                             54
 #define X_ENABLE_PIN                          60
+<<<<<<< HEAD
 
 #define Y_STEP_PIN                            57
 #define Y_DIR_PIN                             56
@@ -74,6 +81,24 @@
 #define E0_STEP_PIN                           67
 #define E0_DIR_PIN                            24
 #define E0_ENABLE_PIN                         26
+=======
+
+#define Y_STEP_PIN                            57
+#define Y_DIR_PIN                             56
+#define Y_ENABLE_PIN                          61
+
+#define Z_STEP_PIN                            59
+#define Z_DIR_PIN                             58
+#define Z_ENABLE_PIN                          62
+
+#define E0_STEP_PIN                           67
+#define E0_DIR_PIN                            24
+#define E0_ENABLE_PIN                         26
+
+#define E1_STEP_PIN                           68
+#define E1_DIR_PIN                            28
+#define E1_ENABLE_PIN                         27
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Temperature Sensors

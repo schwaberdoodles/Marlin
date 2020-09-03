@@ -16,11 +16,16 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
 
+<<<<<<< HEAD
 #ifndef TARGET_STM32F4
   #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
 #elif HOTENDS > 3 || E_STEPPERS > 3
@@ -282,3 +287,12 @@
   #endif
 
 #endif // HAS_SPI_LCD
+=======
+#if HOTENDS > 3 || E_STEPPERS > 3
+  #error "BIGTREE SKR Pro V1.1 supports up to 3 hotends / E-steppers."
+#endif
+
+#define BOARD_INFO_NAME "BTT SKR Pro V1.1"
+
+#include "pins_BTT_SKR_PRO_common.h"
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935

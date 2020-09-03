@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -78,6 +78,16 @@
 //
 #ifndef Z_MIN_PROBE_PIN
   #define Z_MIN_PROBE_PIN                     10
+<<<<<<< HEAD
+=======
+#endif
+
+//
+// Filament Runout Sensor
+//
+#ifndef FIL_RUNOUT_PIN
+  #define FIL_RUNOUT_PIN                      62
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 //
@@ -109,6 +119,10 @@
 #define TEMP_0_PIN                             0  // Analog Input
 #define TEMP_1_PIN                             1  // Analog Input
 #define TEMP_BED_PIN                           2  // Analog Input
+<<<<<<< HEAD
+=======
+#define TEMP_PROBE_PIN                         3  // Analog Input
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Heaters / Fans
@@ -129,7 +143,14 @@
 //
 #define SDSS                                  77
 #define LED_PIN                               13
+<<<<<<< HEAD
 #define CASE_LIGHT_PIN                         9
+=======
+
+#ifndef CASE_LIGHT_PIN
+  #define CASE_LIGHT_PIN                       9
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // M3/M4/M5 - Spindle/Laser Control

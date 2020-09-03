@@ -16,7 +16,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -28,7 +32,13 @@
 #define BOARD_INFO_NAME      "RemRam v1"
 #define DEFAULT_MACHINE_NAME "RemRam"
 
+<<<<<<< HEAD
 #define SRAM_EEPROM_EMULATION                     // Emulate the EEPROM using Backup SRAM
+=======
+#if NO_EEPROM_SELECTED
+  #define SRAM_EEPROM_EMULATION                   // Emulate the EEPROM using Backup SRAM
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #if HOTENDS > 1 || E_STEPPERS > 1
   #error "RemRam supports only one hotend / E-stepper."
@@ -99,7 +109,13 @@
 #endif
 #define FAN1_PIN                              32  // "FAN2"
 
+<<<<<<< HEAD
 #define ORIG_E0_AUTO_FAN_PIN                  32  // Use this by NOT overriding E0_AUTO_FAN_PIN
+=======
+#ifndef E0_AUTO_FAN_PIN
+  #define E0_AUTO_FAN_PIN                     32
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Servos

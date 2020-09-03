@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -46,6 +46,10 @@
 //
 // Timers
 //
+<<<<<<< HEAD
+=======
+// These are already defined in DUE, so must be undefined first
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define STEP_TIMER_NUM                         3
 #define HAL_STEP_TIMER_ISR()  void TC3_Handler()
 

@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -39,9 +39,19 @@
   #define FIL_RUNOUT2_PIN                     15  // Creality CR-X can use dual runout sensors
 #endif
 
+<<<<<<< HEAD
 #define SD_DETECT_PIN                         49  // Always define onboard SD detect
 
 #define PS_ON_PIN                             40  // Used by CR2020 Industrial series
+=======
+#ifndef SD_DETECT_PIN
+  #define SD_DETECT_PIN                       49  // Always define onboard SD detect
+#endif
+
+#ifndef PS_ON_PIN
+  #define PS_ON_PIN                           40  // Used by CR2020 Industrial series
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #if ENABLED(CASE_LIGHT_ENABLE) && !defined(CASE_LIGHT_PIN)
   #define CASE_LIGHT_PIN                      65
@@ -59,4 +69,10 @@
 #define EXP4_PIN                              12  // PS_ON_PIN
 
 #define SUICIDE_PIN                           12  // Used by CR2020 Industrial series
+<<<<<<< HEAD
 #define SUICIDE_PIN_INVERTING true                // Used by CR2020 Industrial series
+=======
+#ifndef SUICIDE_PIN_INVERTING
+  #define SUICIDE_PIN_INVERTING             true
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935

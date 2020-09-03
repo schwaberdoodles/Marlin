@@ -16,7 +16,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -111,6 +115,21 @@
 
   #endif // !MKS_MINI_12864
 
+<<<<<<< HEAD
+=======
+  #if HAS_GRAPHICAL_LCD
+    #ifndef BOARD_ST7920_DELAY_1
+      #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+      #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+      #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+    #endif
+  #endif
+
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif // HAS_SPI_LCD
 
 // Motor current PWM pins
@@ -129,9 +148,12 @@
 #define MISO_PIN                            P1B4
 #define MOSI_PIN                            P1B5
 #define SS_PIN                              PA15
+<<<<<<< HEAD
 
 #if HAS_GRAPHICAL_LCD
   #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
   #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
   #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
 #endif
+=======
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935

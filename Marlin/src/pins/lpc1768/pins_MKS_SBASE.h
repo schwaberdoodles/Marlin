@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -38,6 +38,7 @@
   #define BOARD_WEBSITE_URL "github.com/makerbase-mks/MKS-SBASE"
 #endif
 
+<<<<<<< HEAD
 //
 // EEPROM
 //
@@ -46,6 +47,8 @@
   //#define SDCARD_EEPROM_EMULATION
 #endif
 
+=======
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define LED_PIN                            P1_18  // Used as a status indicator
 #define LED2_PIN                           P1_19
 #define LED3_PIN                           P1_20
@@ -332,7 +335,7 @@
   #define E0_SERIAL_RX_PIN                 P0_26  // TH4
 
   // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE 19200
+  #define TMC_BAUD_RATE                    19200
 #endif
 
 // UNUSED

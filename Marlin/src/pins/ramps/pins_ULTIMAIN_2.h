@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -98,7 +98,13 @@
   #define FAN_PIN                              7
 #endif
 
+<<<<<<< HEAD
 #define ORIG_E0_AUTO_FAN_PIN                  77
+=======
+#ifndef E0_AUTO_FAN_PIN
+  #define E0_AUTO_FAN_PIN                     77
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Misc. Functions

@@ -16,14 +16,22 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
 
 /**
  * STM32F407VET6 with RAMPS-like shield
+<<<<<<< HEAD
  * 'Black' STM32F407VET6 board - http://wiki.stm32duino.com/index.php?title=STM32F407
+=======
+ * 'Black' STM32F407VET6 board - https://www.stm32duino.com/viewtopic.php?t=485
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  * Shield - https://github.com/jmz52/Hardware
  */
 
@@ -40,8 +48,13 @@
 #define DEFAULT_MACHINE_NAME "STM32F407VET6"
 
 //#define I2C_EEPROM
+<<<<<<< HEAD
 //#define E2END 0x1FFF                            // 8KB
 #define SRAM_EEPROM_EMULATION
+=======
+#define SRAM_EEPROM_EMULATION
+#define MARLIN_EEPROM_SIZE                0x2000  // 8KB
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Servos
@@ -142,7 +155,15 @@
 #define SDIO_CK_PIN                         PC12
 #define SDIO_CMD_PIN                        PD2
 
+<<<<<<< HEAD
 #if !defined(SDCARD_CONNECTION) || SDCARD_CONNECTION == ONBOARD
+=======
+#ifndef SDCARD_CONNECTION
+  #define SDCARD_CONNECTION              ONBOARD
+#endif
+
+#if SD_CONNECTION_IS(ONBOARD)
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define SDIO_SUPPORT                            // Use SDIO for onboard SD
 
   #ifndef SDIO_SUPPORT

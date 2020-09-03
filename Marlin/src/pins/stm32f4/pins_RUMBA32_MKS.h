@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -35,12 +35,22 @@
 
 #define BOARD_INFO_NAME "MKS RUMBA32"
 
-#define RUMBA32_V1_0
+#if NO_EEPROM_SELECTED
+  #define FLASH_EEPROM_EMULATION
+  #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
+#endif
+
+#if ENABLED(FLASH_EEPROM_EMULATION)
+  // Decrease delays and flash wear by spreading writes across the
+  // 128 kB sector allocated for EEPROM emulation.
+  #define FLASH_EEPROM_LEVELING
+#endif
+
 #define ENABLE_SPI1
-//#define I2C_EEPROM
 
 #include "pins_RUMBA32_common.h"
 
+<<<<<<< HEAD:Marlin/src/pins/stm32f4/pins_RUMBA32_MKS.h
 //
 // Software SPI pins for TMC2130 stepper drivers
 //
@@ -56,6 +66,8 @@
   #endif
 #endif
 
+=======
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:Marlin/src/pins/stm32f4/pins_RUMBA32_MKS.h
 #if HAS_TMC_UART
   /**
    * TMC2208/TMC2209 stepper drivers
@@ -80,6 +92,7 @@
   //
   #define X_SERIAL_TX_PIN                   PA3
   #define X_SERIAL_RX_PIN                   PC14
+<<<<<<< HEAD:Marlin/src/pins/stm32f4/pins_RUMBA32_MKS.h
 
   #define Y_SERIAL_TX_PIN                   PA4
   #define Y_SERIAL_RX_PIN                   PE4
@@ -96,14 +109,21 @@
   #define E2_SERIAL_TX_PIN                  PD12
   #define E2_SERIAL_RX_PIN                  PD1
 #endif
+=======
 
-//
-// LCD / Controller
-//
+  #define Y_SERIAL_TX_PIN                   PA4
+  #define Y_SERIAL_RX_PIN                   PE4
 
-// Alter timing for graphical display
-#if HAS_GRAPHICAL_LCD
-  #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
-  #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
-  #define BOARD_ST7920_DELAY_3 DELAY_NS(600)
+  #define Z_SERIAL_TX_PIN                   PD13
+  #define Z_SERIAL_RX_PIN                   PE0
+
+  #define E0_SERIAL_TX_PIN                  PD14
+  #define E0_SERIAL_RX_PIN                  PC13
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:Marlin/src/pins/stm32f4/pins_RUMBA32_MKS.h
+
+  #define E1_SERIAL_TX_PIN                  PD15
+  #define E1_SERIAL_RX_PIN                  PD5
+
+  #define E2_SERIAL_TX_PIN                  PD12
+  #define E2_SERIAL_RX_PIN                  PD1
 #endif

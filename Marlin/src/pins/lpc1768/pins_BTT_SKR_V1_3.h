@@ -16,19 +16,23 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
 
-#define BOARD_INFO_NAME "BIGTREE SKR 1.3"
+#define BOARD_INFO_NAME "BTT SKR V1.3"
 
 //
-// EEPROM
+// Trinamic Stallguard pins
 //
-#define FLASH_EEPROM_EMULATION
-//#define SDCARD_EEPROM_EMULATION
+#define X_DIAG_PIN                         P1_29  // X-
+#define Y_DIAG_PIN                         P1_27  // Y-
+#define Z_DIAG_PIN                         P1_25  // Z-
+#define E0_DIAG_PIN                        P1_28  // X+
+#define E1_DIAG_PIN                        P1_26  // Y+
 
+<<<<<<< HEAD
 /**
  * Trinamic Stallguard pins
  */
@@ -42,6 +46,12 @@
  * Limit Switches
  */
 #if X_STALL_SENSITIVITY
+=======
+//
+// Limit Switches
+//
+#ifdef X_STALL_SENSITIVITY
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define X_STOP_PIN                  X_DIAG_PIN
   #if X_HOME_DIR < 0
     #define X_MAX_PIN                      P1_28  // X+
@@ -53,7 +63,11 @@
   #define X_MAX_PIN                        P1_28  // X+
 #endif
 
+<<<<<<< HEAD
 #if Y_STALL_SENSITIVITY
+=======
+#ifdef Y_STALL_SENSITIVITY
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define Y_STOP_PIN                  Y_DIAG_PIN
   #if Y_HOME_DIR < 0
     #define Y_MAX_PIN                      P1_26  // Y+
@@ -65,7 +79,11 @@
   #define Y_MAX_PIN                        P1_26  // Y+
 #endif
 
+<<<<<<< HEAD
 #if Z_STALL_SENSITIVITY
+=======
+#ifdef Z_STALL_SENSITIVITY
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define Z_STOP_PIN                  Z_DIAG_PIN
   #if Z_HOME_DIR < 0
     #define Z_MAX_PIN                      P1_24  // Z+
@@ -188,7 +206,7 @@
   #define E1_SERIAL_RX_PIN                 P1_01
 
   // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE 19200
+  #define TMC_BAUD_RATE                    19200
 #endif
 
 /**
@@ -259,6 +277,7 @@
   #elif ENABLED(CR10_STOCKDISPLAY)
 
     #define LCD_PINS_RS             EXPA1_04_PIN
+<<<<<<< HEAD
 
     #define BTN_EN1                 EXPA1_08_PIN
     #define BTN_EN2                 EXPA1_06_PIN
@@ -266,6 +285,19 @@
 
     #define LCD_PINS_ENABLE         EXPA1_03_PIN
     #define LCD_PINS_D4             EXPA1_05_PIN
+=======
+
+    #define BTN_EN1                 EXPA1_08_PIN
+    #define BTN_EN2                 EXPA1_06_PIN
+    #define BTN_ENC                 EXPA1_09_PIN  // (58) open-drain
+
+    #define LCD_PINS_ENABLE         EXPA1_03_PIN
+    #define LCD_PINS_D4             EXPA1_05_PIN
+
+  #elif HAS_ADC_BUTTONS
+
+    #error "ADC BUTTONS do not work unmodifed on SKR 1.3, The ADC ports cannot take more than 3.3v."
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
   #else                                           // !CR10_STOCKDISPLAY
 

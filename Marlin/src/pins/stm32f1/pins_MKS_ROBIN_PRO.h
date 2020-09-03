@@ -16,7 +16,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -41,7 +45,11 @@
 //
 // Note: MKS Robin board is using SPI2 interface.
 //
+<<<<<<< HEAD
 //#define SPI_MODULE 2
+=======
+//#define SPI_MODULE                           2
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define ENABLE_SPI2
 
 //
@@ -219,11 +227,17 @@
   #define FSMC_RS_PIN                       PD11  // A0
 
   #define LCD_RESET_PIN                     PF6
+<<<<<<< HEAD
   #define NO_LCD_REINIT                           // Suppress LCD re-initialization
 
   #define LCD_BACKLIGHT_PIN                 PD13
 
   #if ENABLED(TOUCH_BUTTONS)
+=======
+  #define LCD_BACKLIGHT_PIN                 PD13
+
+  #if NEED_TOUCH_PINS
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     #define TOUCH_CS_PIN                    PA7
   #else
     #define BEEPER_PIN                      PC5
@@ -263,6 +277,7 @@
   #endif // !MKS_MINI_12864 && !ENDER2_STOCKDISPLAY
 #endif
 
+<<<<<<< HEAD
 #ifndef ST7920_DELAY_1
   #define ST7920_DELAY_1           DELAY_NS(125)
 #endif
@@ -271,4 +286,14 @@
 #endif
 #ifndef ST7920_DELAY_3
   #define ST7920_DELAY_3           DELAY_NS(125)
+=======
+#ifndef BOARD_ST7920_DELAY_1
+  #define BOARD_ST7920_DELAY_1     DELAY_NS(125)
+#endif
+#ifndef BOARD_ST7920_DELAY_2
+  #define BOARD_ST7920_DELAY_2     DELAY_NS(125)
+#endif
+#ifndef BOARD_ST7920_DELAY_3
+  #define BOARD_ST7920_DELAY_3     DELAY_NS(125)
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif

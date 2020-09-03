@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -103,8 +103,16 @@
 #define SDSS                                  53
 #define SD_DETECT_PIN                         39
 //#define LED_PIN                              8
+<<<<<<< HEAD
 #define CASE_LIGHT_PIN                         8  // 8 默认挤出机风扇作为Case LED，如果需要PWM FAN,则需要将FAN_PIN置为7，LED_PIN置为8
 
+=======
+
+#ifndef CASE_LIGHT_PIN
+  #define CASE_LIGHT_PIN                       8  // 8 默认挤出机风扇作为Case LED，如果需要PWM FAN,则需要将FAN_PIN置为7，LED_PIN置为8
+#endif
+
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 //#define SAFETY_TRIGGERED_PIN                28  // PIN to detect the safety circuit has triggered
 //#define MAIN_VOLTAGE_MEASURE_PIN            14  // ANALOG PIN to measure the main voltage, with a 100k - 4k7 resitor divider.
 

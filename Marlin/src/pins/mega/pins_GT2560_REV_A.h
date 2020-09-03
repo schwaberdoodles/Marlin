@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -44,7 +44,21 @@
 #define Y_MIN_PIN                             26
 #define Y_MAX_PIN                             28
 #define Z_MIN_PIN                             30
+<<<<<<< HEAD
 #define Z_MAX_PIN                             32
+=======
+
+#if ENABLED(BLTOUCH)
+  #if MB(GT2560_REV_A_PLUS)
+    #define SERVO0_PIN                        11
+  #else
+    #define SERVO0_PIN                        32
+  #endif
+  #define Z_MAX_PIN                           -1
+#else
+  #define Z_MAX_PIN                           32
+#endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Steppers

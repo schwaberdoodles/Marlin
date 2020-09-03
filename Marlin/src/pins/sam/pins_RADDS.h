@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -30,6 +30,14 @@
 #endif
 
 #define BOARD_INFO_NAME "RADDS"
+
+//
+// EEPROM
+//
+#if EITHER(NO_EEPROM_SELECTED, I2C_EEPROM)
+  #define I2C_EEPROM
+  #define MARLIN_EEPROM_SIZE              0x2000  // 8KB
+#endif
 
 //
 // Servos
@@ -205,9 +213,12 @@
   #define FIL_RUNOUT_PIN                      39  // SERVO2_PIN
 #endif
 
+<<<<<<< HEAD
 #define I2C_EEPROM
 #define E2END 0x1FFF                              // 8KB
 
+=======
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 //
 // M3/M4/M5 - Spindle/Laser Control
 //

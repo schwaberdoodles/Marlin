@@ -16,7 +16,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -29,12 +33,20 @@
   #error "Marlin extruder/hotends limit! Increase MAX_EXTRUDERS to continue."
 #endif
 
+<<<<<<< HEAD
 #define BOARD_INFO_NAME "BIGTREE GTR 1.0"
 
 // Use one of these or SDCard-based Emulation will be used
 //#define I2C_EEPROM
 //#define SRAM_EEPROM_EMULATION                   // Use BackSRAM-based EEPROM emulation
 //#define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
+=======
+#define BOARD_INFO_NAME "BTT GTR V1.0"
+
+// Onboard I2C EEPROM
+#define I2C_EEPROM
+#define MARLIN_EEPROM_SIZE                0x2000  // 8KB (24C64 ... 64Kb = 8KB)
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #define TP                                        // Enable to define servo and probe pins
 
@@ -224,7 +236,11 @@
   #define E7_SERIAL_RX_PIN                  PH14
 
   // Reduce baud rate to improve software serial reliability
+<<<<<<< HEAD
   #define TMC_BAUD_RATE 19200
+=======
+  #define TMC_BAUD_RATE                    19200
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 //
@@ -281,6 +297,7 @@
 //#define FAN6_PIN                          PC9   // Fan6
 //#define FAN7_PIN                          PE14  // Fan7
 
+<<<<<<< HEAD
 //
 // By default the onboard SD (SPI1) is enabled
 //
@@ -299,6 +316,31 @@
   #define MISO_PIN                          PA6
   #define MOSI_PIN                          PA7
   #define SS_PIN                            PA4   // Chip select for SD card used by Marlin
+=======
+#ifndef SDCARD_CONNECTION
+  #define SDCARD_CONNECTION ONBOARD
+#endif
+
+//
+// By default the LCD SD (SPI2) is enabled
+// Onboard SD is on a completely separate SPI bus, and requires
+// overriding pins to access.
+//
+#if SD_CONNECTION_IS(LCD)
+  #define SD_DETECT_PIN                     PB10
+  #define SDSS                              PB12
+#elif SD_CONNECTION_IS(ONBOARD)
+  // Instruct the STM32 HAL to override the default SPI pins from the variant.h file
+  #define CUSTOM_SPI_PINS
+  #define SDSS                              PA4
+  #define SS_PIN                            SDSS
+  #define SCK_PIN                           PA5
+  #define MISO_PIN                          PA6
+  #define MOSI_PIN                          PA7
+  #define SD_DETECT_PIN                     PC4
+#elif SD_CONNECTION_IS(CUSTOM_CABLE)
+  #define "CUSTOM_CABLE is not a supported SDCARD_CONNECTION for this board"
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 /**
@@ -320,6 +362,7 @@
   #define BTN_ENC                           PA15
 
   #if ENABLED(CR10_STOCKDISPLAY)
+<<<<<<< HEAD
 
     #define LCD_PINS_RS                     PA8
 
@@ -333,6 +376,30 @@
     //#undef ST7920_DELAY_2
     //#undef ST7920_DELAY_3
 
+=======
+    #define LCD_PINS_RS                     PG6
+
+    #define BTN_EN1                         PC10
+    #define BTN_EN2                         PG8
+
+    #define LCD_PINS_ENABLE                 PG5
+    #define LCD_PINS_D4                     PG7
+
+    // CR10_STOCKDISPLAY default timing is too fast
+    #undef BOARD_ST7920_DELAY_1
+    #undef BOARD_ST7920_DELAY_2
+    #undef BOARD_ST7920_DELAY_3
+
+  #elif ENABLED(MKS_MINI_12864)
+    #define DOGLCD_A0                       PG6
+    #define DOGLCD_CS                       PG7
+    #define BTN_EN1                         PD10
+    #define BTN_EN2                         PH10
+
+    #if SD_CONNECTION_IS(ONBOARD)
+      #define SOFTWARE_SPI
+    #endif
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #else
 
     #define LCD_PINS_RS                     PA8
@@ -340,17 +407,28 @@
     #define BTN_EN1                         PD10
     #define BTN_EN2                         PH10
 
+<<<<<<< HEAD
     #if DISABLED(CUSTOM_SPI_PINS)
       #define SD_DETECT_PIN                 PB10
       #define LCD_SDSS                      PB12
     #endif
 
+=======
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     #define LCD_PINS_ENABLE                 PC10
     #define LCD_PINS_D4                     PG8
 
     #if ENABLED(FYSETC_MINI_12864)
       #define DOGLCD_CS                     PC10
       #define DOGLCD_A0                     PA8
+<<<<<<< HEAD
+=======
+
+      #if SD_CONNECTION_IS(ONBOARD)
+        #define SOFTWARE_SPI
+      #endif
+
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
       //#define LCD_BACKLIGHT_PIN           -1
       #define LCD_RESET_PIN                 PG8   // Must be high or open for LCD to operate normally.
       #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
@@ -378,6 +456,7 @@
 
   // Alter timing for graphical display
   #if HAS_GRAPHICAL_LCD
+<<<<<<< HEAD
     #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
     #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
     #define BOARD_ST7920_DELAY_3 DELAY_NS(600)
@@ -389,3 +468,19 @@
   //#define DOGLCD_MOSI                     PB15
 
 #endif // HAS_SPI_LCD
+=======
+    #ifndef BOARD_ST7920_DELAY_1
+      #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+      #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+      #define BOARD_ST7920_DELAY_3 DELAY_NS(600)
+    #endif
+  #endif
+
+#endif // HAS_SPI_LCD
+
+#undef TP
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935

@@ -16,7 +16,11 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=======
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -115,8 +119,11 @@
     #define DOGLCD_SCK                      PB13
     #define DOGLCD_MOSI                     PB15
 
+<<<<<<< HEAD
     // Required for MKS_MINI_12864 with this board
     #define MKS_LCD12864B
+=======
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     #undef SHOW_BOOTSCREEN
 
   #else                                           // !MKS_MINI_12864
@@ -142,6 +149,7 @@
 #define MOSI_PIN                            PB15
 #define SS_PIN                              PA15
 
+<<<<<<< HEAD
 #ifndef ST7920_DELAY_1
   #define ST7920_DELAY_1           DELAY_NS(125)
 #endif
@@ -150,4 +158,14 @@
 #endif
 #ifndef ST7920_DELAY_3
   #define ST7920_DELAY_3           DELAY_NS(125)
+=======
+#ifndef BOARD_ST7920_DELAY_1
+  #define BOARD_ST7920_DELAY_1     DELAY_NS(125)
+#endif
+#ifndef BOARD_ST7920_DELAY_2
+  #define BOARD_ST7920_DELAY_2     DELAY_NS(125)
+#endif
+#ifndef BOARD_ST7920_DELAY_3
+  #define BOARD_ST7920_DELAY_3     DELAY_NS(125)
+>>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
