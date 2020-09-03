@@ -176,12 +176,6 @@ const char* ftostr12ns(const float &f) {
   return &conv[3];
 }
 
-<<<<<<< HEAD
-// Convert signed float to fixed-length string with 12.34 / _2.34 / -2.34 or -23.45 / 123.45 format
-const char* ftostr42_52(const float &f) {
-  if (f <= -10 || f >= 100) return ftostr52(f); // -23.45 / 123.45
-  long i = (f * 1000 + (f < 0 ? -5: 5)) / 10;
-=======
 // Convert unsigned float to string with 12.3 format
 const char* ftostr31ns(const float &f) {
   const long i = UINTFLOAT(f, 1);
@@ -207,7 +201,6 @@ const char* ftostr41ns(const float &f) {
 const char* ftostr42_52(const float &f) {
   if (f <= -10 || f >= 100) return ftostr52(f); // -23.45 / 123.45
   long i = INTFLOAT(f, 2);
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   conv[2] = (f >= 0 && f < 10) ? ' ' : MINUSOR(i, DIGIMOD(i, 1000));
   conv[3] = DIGIMOD(i, 100);
   conv[4] = '.';
@@ -231,11 +224,7 @@ const char* ftostr52(const float &f) {
 // Convert signed float to fixed-length string with 12.345 / _2.345 / -2.345 or -23.45 / 123.45 format
 const char* ftostr53_63(const float &f) {
   if (f <= -10 || f >= 100) return ftostr63(f); // -23.456 / 123.456
-<<<<<<< HEAD
-  long i = (f * 10000 + (f < 0 ? -5: 5)) / 10;
-=======
   long i = INTFLOAT(f, 3);
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   conv[1] = (f >= 0 && f < 10) ? ' ' : MINUSOR(i, DIGIMOD(i, 10000));
   conv[2] = DIGIMOD(i, 1000);
   conv[3] = '.';
@@ -247,11 +236,7 @@ const char* ftostr53_63(const float &f) {
 
 // Convert signed float to fixed-length string with 023.456 / -23.456 format
 const char* ftostr63(const float &f) {
-<<<<<<< HEAD
-  long i = (f * 10000 + (f < 0 ? -5: 5)) / 10;
-=======
   long i = INTFLOAT(f, 3);
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   conv[0] = MINUSOR(i, DIGIMOD(i, 100000));
   conv[1] = DIGIMOD(i, 10000);
   conv[2] = DIGIMOD(i, 1000);
@@ -361,11 +346,7 @@ const char* ftostr52sign(const float &f) {
 
 // Convert signed float to string with +12.345 format
 const char* ftostr53sign(const float &f) {
-<<<<<<< HEAD
-  long i = (f * 1000 + (f < 0 ? -5: 5)) / 10;
-=======
   long i = INTFLOAT(f, 3);
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   conv[0] = MINUSOR(i, '+');
   conv[1] = DIGIMOD(i, 10000);
   conv[2] = DIGIMOD(i, 1000);

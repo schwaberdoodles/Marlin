@@ -56,24 +56,14 @@ void GcodeSuite::M42() {
       #ifdef INPUT_PULLDOWN
         case 3: pinMode(pin, INPUT_PULLDOWN); break;
       #endif
-<<<<<<< HEAD
-      default: SERIAL_ECHOLNPGM("Invalid Pin Mode");
-    }
-    return;
-=======
       default: SERIAL_ECHOLNPGM("Invalid Pin Mode"); return;
     }
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   }
 
   if (!parser.seenval('S')) return;
   const byte pin_status = parser.value_byte();
 
-<<<<<<< HEAD
-  #if FAN_COUNT > 0
-=======
   #if HAS_FAN
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     switch (pin) {
       #if HAS_FAN0
         case FAN0_PIN: thermalManager.fan_speed[0] = pin_status; return;

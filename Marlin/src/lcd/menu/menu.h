@@ -43,17 +43,6 @@ typedef void (*selectFunc_t)();
   void _lcd_zoffset_overlay_gfx(const float zvalue);
 #endif
 
-<<<<<<< HEAD
-#if HAS_BED_PROBE
-  #if Z_PROBE_OFFSET_RANGE_MIN >= -9 && Z_PROBE_OFFSET_RANGE_MAX <= 9
-    #define LCD_Z_OFFSET_TYPE float43    // Values from -9.000 to +9.000
-  #else
-    #define LCD_Z_OFFSET_TYPE float42_52 // Values from -99.99 to 99.99
-  #endif
-#endif
-
-=======
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #if ENABLED(BABYSTEP_ZPROBE_OFFSET) && Z_PROBE_OFFSET_RANGE_MIN >= -9 && Z_PROBE_OFFSET_RANGE_MAX <= 9
   #define BABYSTEP_TO_STR(N) ftostr43sign(N)
 #elif ENABLED(BABYSTEPPING)
@@ -193,131 +182,6 @@ class MenuEditItemBase : public MenuItemBase {
     static inline void draw_edit_screen(const char* const value) { draw_edit_screen(editLabel, value); }
 };
 
-<<<<<<< HEAD
-// Template for specific Menu Edit Item Types
-template<typename NAME>
-class TMenuEditItem : MenuEditItemBase {
-  private:
-    typedef typename NAME::type_t type_t;
-    static inline float scale(const float value)      { return NAME::scale(value);            }
-    static inline float unscale(const float value)    { return NAME::unscale(value);          }
-    static const char* to_string(const int32_t value) { return NAME::strfunc(unscale(value)); }
-    static void load(void *ptr, const int32_t value)  { *((type_t*)ptr) = unscale(value);     }
-  public:
-    FORCE_INLINE static void draw(const bool sel, const uint8_t row, PGM_P const pstr, type_t * const data, ...) {
-      MenuEditItemBase::draw(sel, row, pstr, NAME::strfunc(*(data)));
-    }
-    FORCE_INLINE static void draw(const bool sel, const uint8_t row, PGM_P const pstr, type_t (*pget)(), ...) {
-      MenuEditItemBase::draw(sel, row, pstr, NAME::strfunc(pget()));
-    }
-    // Edit screen for this type of item
-    static void edit_screen() { MenuEditItemBase::edit_screen(to_string, load); }
-    static void action(
-      PGM_P const pstr,                     // Edit label
-      type_t * const ptr,                   // Value pointer
-      const type_t minValue,                // Value range
-      const type_t maxValue,
-      const screenFunc_t callback=nullptr,  // Value update callback
-      const bool live=false                 // Callback during editing
-    ) {
-      // Make sure minv and maxv fit within int32_t
-      const int32_t minv = _MAX(scale(minValue), INT32_MIN),
-                    maxv = _MIN(scale(maxValue), INT32_MAX);
-      goto_edit_screen(pstr, ptr, minv, maxv - minv, scale(*ptr) - minv,
-        edit_screen, callback, live);
-    }
-};
-
-// Provide a set of Edit Item Types which encompass a primitive
-// type, a string function, and a scale factor for edit and display.
-// These items call the Edit Item draw method passing the prepared string.
-#define __DOFIXfloat PROBE()
-#define _DOFIX(TYPE,V) TYPE(TERN(IS_PROBE(__DOFIX##TYPE),FIXFLOAT(V),(V)))
-#define DEFINE_MENU_EDIT_ITEM_TYPE(NAME, TYPE, STRFUNC, SCALE, V...) \
-  struct MenuEditItemInfo_##NAME { \
-    typedef TYPE type_t; \
-    static inline float scale(const float value)   { return value * (SCALE) + (V+0); } \
-    static inline float unscale(const float value) { return value / (SCALE) + (V+0); } \
-    static inline const char* strfunc(const float value) { return STRFUNC(_DOFIX(TYPE,value)); } \
-  }; \
-  typedef TMenuEditItem<MenuEditItemInfo_##NAME> MenuItem_##NAME
-
-//                         NAME         TYPE      STRFUNC          SCALE         +ROUND
-DEFINE_MENU_EDIT_ITEM_TYPE(percent     ,uint8_t  ,ui8tostr4pctrj  , 100.f/255.f, 0.5f);  // 100%   right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(int3        ,int16_t  ,i16tostr3rj     ,   1     );   // 123, -12   right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(int4        ,int16_t  ,i16tostr4signrj ,   1     );   // 1234, -123 right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(int8        ,int8_t   ,i8tostr3rj      ,   1     );   // 123, -12   right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(uint8       ,uint8_t  ,ui8tostr3rj     ,   1     );   // 123        right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(uint16_3    ,uint16_t ,ui16tostr3rj    ,   1     );   // 123        right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(uint16_4    ,uint16_t ,ui16tostr4rj    ,   0.1f  );   // 1234       right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(uint16_5    ,uint16_t ,ui16tostr5rj    ,   0.01f );   // 12345      right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(float3      ,float    ,ftostr3         ,   1     );   // 123        right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(float42_52  ,float    ,ftostr42_52     , 100     );   // _2.34, 12.34, -2.34 or 123.45, -23.45
-DEFINE_MENU_EDIT_ITEM_TYPE(float43     ,float    ,ftostr43sign    ,1000     );   // -1.234, _1.234, +1.234
-DEFINE_MENU_EDIT_ITEM_TYPE(float5      ,float    ,ftostr5rj       ,   1     );   // 12345      right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(float5_25   ,float    ,ftostr5rj       ,   0.04f );   // 12345      right-justified (25 increment)
-DEFINE_MENU_EDIT_ITEM_TYPE(float51     ,float    ,ftostr51rj      ,  10     );   // 1234.5     right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(float41sign ,float    ,ftostr41sign    ,  10     );   // +123.4
-DEFINE_MENU_EDIT_ITEM_TYPE(float51sign ,float    ,ftostr51sign    ,  10     );   // +1234.5
-DEFINE_MENU_EDIT_ITEM_TYPE(float52sign ,float    ,ftostr52sign    , 100     );   // +123.45
-DEFINE_MENU_EDIT_ITEM_TYPE(long5       ,uint32_t ,ftostr5rj       ,   0.01f );   // 12345      right-justified
-DEFINE_MENU_EDIT_ITEM_TYPE(long5_25    ,uint32_t ,ftostr5rj       ,   0.04f );   // 12345      right-justified (25 increment)
-
-class MenuItem_bool : public MenuEditItemBase {
-  public:
-    FORCE_INLINE static void draw(const bool sel, const uint8_t row, PGM_P const pstr, const bool onoff) {
-      MenuEditItemBase::draw(sel, row, pstr, onoff ? GET_TEXT(MSG_LCD_ON) : GET_TEXT(MSG_LCD_OFF), true);
-    }
-    FORCE_INLINE static void draw(const bool sel, const uint8_t row, PGM_P const pstr, bool * const data, ...) {
-      draw(sel, row, pstr, *data);
-    }
-    FORCE_INLINE static void draw(const bool sel, const uint8_t row, PGM_P const pstr, PGM_P const, bool (*pget)(), ...) {
-      draw(sel, row, pstr, pget());
-    }
-    static void action(PGM_P const pstr, bool * const ptr, const screenFunc_t callbackFunc=nullptr);
-};
-
-////////////////////////////////////////////
-//////////// Menu System Macros ////////////
-////////////////////////////////////////////
-
-/**
- * SCREEN_OR_MENU_LOOP generates init code for a screen or menu
- *
- *   encoderTopLine is the top menu line to display
- *   _lcdLineNr is the index of the LCD line (e.g., 0-3)
- *   _menuLineNr is the menu item to draw and process
- *   _thisItemNr is the index of each MENU_ITEM or STATIC_ITEM
- */
-#define SCREEN_OR_MENU_LOOP(IS_MENU)                    \
-  scroll_screen(IS_MENU ? 1 : LCD_HEIGHT, IS_MENU);     \
-  int8_t _menuLineNr = encoderTopLine, _thisItemNr = 0; \
-  bool _skipStatic = IS_MENU; UNUSED(_thisItemNr);      \
-  for (int8_t _lcdLineNr = 0; _lcdLineNr < LCD_HEIGHT; _lcdLineNr++, _menuLineNr++) { \
-    _thisItemNr = 0
-
-/**
- * START_SCREEN  Opening code for a screen having only static items.
- *               Do simplified scrolling of the entire screen.
- *
- * START_MENU    Opening code for a screen with menu items.
- *               Scroll as-needed to keep the selected line in view.
- */
-#define START_SCREEN() SCREEN_OR_MENU_LOOP(false)
-#define START_MENU() SCREEN_OR_MENU_LOOP(true)
-#define NEXT_ITEM() (++_thisItemNr)
-#define SKIP_ITEM() NEXT_ITEM()
-#define END_SCREEN() } screen_items = _thisItemNr
-#define END_MENU() END_SCREEN(); UNUSED(_skipStatic)
-
-#if ENABLED(ENCODER_RATE_MULTIPLIER)
-  #define ENCODER_RATE_MULTIPLY(F) (ui.encoderRateMultiplierEnabled = F)
-  #define _MENU_ITEM_MULTIPLIER_CHECK(USE_MULTIPLIER) do{ if (USE_MULTIPLIER) ui.enable_encoder_multiplier(true); }while(0)
-  //#define ENCODER_RATE_MULTIPLIER_DEBUG  // If defined, output the encoder steps per second value
-#else
-  #define ENCODER_RATE_MULTIPLY(F) NOOP
-  #define _MENU_ITEM_MULTIPLIER_CHECK(USE_MULTIPLIER)
-=======
 #if ENABLED(SDSUPPORT)
   class CardReader;
   class MenuItem_sdbase {
@@ -325,7 +189,6 @@ class MenuItem_bool : public MenuEditItemBase {
       // Implemented for HD44780 and DOGM
       static void draw(const bool sel, const uint8_t row, PGM_P const pstr, CardReader &theCard, const bool isDir);
   };
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 ////////////////////////////////////////////

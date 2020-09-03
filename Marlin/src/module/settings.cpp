@@ -138,8 +138,6 @@
   void M710_report(const bool forReplay);
 #endif
 
-<<<<<<< HEAD:Marlin/src/module/configuration_store.cpp
-=======
 #if ENABLED(CASE_LIGHT_MENU) && DISABLED(CASE_LIGHT_NO_BRIGHTNESS)
   #include "../feature/caselight.h"
   #define HAS_CASE_LIGHT_BRIGHTNESS 1
@@ -153,7 +151,6 @@
   #include "../lcd/tft/touch.h"
 #endif
 
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:Marlin/src/module/settings.cpp
 #pragma pack(push, 1) // No padding between variables
 
 typedef struct { uint16_t X, Y, Z, X2, Y2, Z2, Z3, Z4, E0, E1, E2, E3, E4, E5, E6, E7; } tmc_stepper_current_t;
@@ -3332,13 +3329,7 @@ void MarlinSettings::reset() {
       SERIAL_ECHOLNPAIR("  M250 C", ui.contrast);
     #endif
 
-<<<<<<< HEAD:Marlin/src/module/configuration_store.cpp
-    #if ENABLED(CONTROLLER_FAN_EDITABLE)
-      M710_report(forReplay);
-    #endif
-=======
     TERN_(CONTROLLER_FAN_EDITABLE, M710_report(forReplay));
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:Marlin/src/module/settings.cpp
 
     #if ENABLED(POWER_LOSS_RECOVERY)
       CONFIG_ECHO_HEADING("Power-Loss Recovery:");
