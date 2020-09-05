@@ -172,13 +172,9 @@
   #define PS_ON_PIN                           12
 #endif
 
-<<<<<<< HEAD
-#define CASE_LIGHT_PIN                         5
-=======
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                       5
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // LCD / Controller

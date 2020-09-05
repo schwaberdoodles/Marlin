@@ -143,14 +143,10 @@
 //
 #define SDSS                                  53
 #define LED_PIN                               13
-<<<<<<< HEAD
-#define CASE_LIGHT_PIN                         9
-=======
 
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                       9
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // M3/M4/M5 - Spindle/Laser Control

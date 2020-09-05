@@ -171,16 +171,9 @@
 
 //
 // SPI for Max6675 or Max31855 Thermocouple
-<<<<<<< HEAD
-#if DISABLED(SDSUPPORT)
-  #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card
-#else
-  #define MAX6675_SS_PIN                      66  // Don't use 49 (SD_DETECT_PIN)
-=======
 //
 #ifndef MAX6675_SS_PIN
   #define MAX6675_SS_PIN                      66  // Don't use 53 if using Display/SD card (SDSS) or 49 (SD_DETECT_PIN)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 //
@@ -560,11 +553,7 @@
 
     #elif ENABLED(LCD_I2C_VIKI)
 
-<<<<<<< HEAD
-      #define BTN_EN1                         40  // http://files.panucatt.com/datasheets/viki_wiring_diagram.pdf explains 40/42.
-=======
       #define BTN_EN1                         40  // https://files.panucatt.com/datasheets/viki_wiring_diagram.pdf explains 40/42.
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
       #define BTN_EN2                         42
       #define BTN_ENC                         -1
 
@@ -614,11 +603,7 @@
         #define KILL_PIN                      41
       #endif
 
-<<<<<<< HEAD
-      #if ENABLED(MKS_MINI_12864)                 // Added in Marlin 1.1.6
-=======
       #if ENABLED(MKS_MINI_12864)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
         #define DOGLCD_A0                     27
         #define DOGLCD_CS                     25
@@ -722,11 +707,7 @@
 
 #endif // HAS_SPI_LCD
 
-<<<<<<< HEAD
-#if ENABLED(REPRAPWORLD_KEYPAD)
-=======
 #if ENABLED(REPRAPWORLD_KEYPAD) && DISABLED(ADC_KEYPAD)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define SHIFT_OUT                           40
   #define SHIFT_CLK                           44
   #define SHIFT_LD                            42

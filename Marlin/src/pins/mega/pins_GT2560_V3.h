@@ -121,11 +121,7 @@
 //
 #define TEMP_0_PIN                            11  // Analog Input
 #define TEMP_1_PIN                             9  // Analog Input
-<<<<<<< HEAD
-#define TEMP_2_PIN                             1  // Analog Input
-=======
 #define TEMP_2_PIN                             8  // Analog Input
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define TEMP_BED_PIN                          10  // Analog Input
 
 //
@@ -133,11 +129,7 @@
 //
 #define HEATER_0_PIN                          10
 #define HEATER_1_PIN                           3
-<<<<<<< HEAD
-#define HEATER_2_PIN                           1
-=======
 #define HEATER_2_PIN                           2
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define HEATER_BED_PIN                         4
 #define FAN_PIN                                9
 #define FAN1_PIN                               8
@@ -148,11 +140,7 @@
 //
 #define SD_DETECT_PIN                         38
 #define SDSS                                  53
-<<<<<<< HEAD
-#define LED_PIN                                6
-=======
 #define LED_PIN                               13  // Use 6 (case light) for external LED. 13 is internal (yellow) LED.
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define PS_ON_PIN                             12
 #define SUICIDE_PIN                           54  // This pin must be enabled at boot to keep power flowing
 

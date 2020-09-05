@@ -49,13 +49,9 @@
   #define BOARD_INFO_NAME "RAMPS 1.4"
 #endif
 
-<<<<<<< HEAD
-#define E2END 0xFFF                               // 4KB
-=======
 #ifndef MARLIN_EEPROM_SIZE
   #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #define IS_RAMPS_EFB
 
@@ -513,11 +509,7 @@
 
     #elif ENABLED(LCD_I2C_VIKI)
 
-<<<<<<< HEAD
-      #define BTN_EN1                         22  // http://files.panucatt.com/datasheets/viki_wiring_diagram.pdf explains 40/42.
-=======
       #define BTN_EN1                         22  // https://files.panucatt.com/datasheets/viki_wiring_diagram.pdf explains 40/42.
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
       #define BTN_EN2                          7  // 22/7 are unused on RAMPS_14. 22 is unused and 7 the SERVO0_PIN on RAMPS_13.
       #define BTN_ENC                         -1
 

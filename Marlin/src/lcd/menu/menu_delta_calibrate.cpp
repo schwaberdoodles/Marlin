@@ -98,13 +98,7 @@ void _man_probe_pt(const xy_pos_t &xy) {
 
 void lcd_delta_settings() {
   auto _recalc_delta_settings = []{
-<<<<<<< HEAD
-    #if HAS_LEVELING
-      reset_bed_level(); // After changing kinematics bed-level data is no longer valid
-    #endif
-=======
     TERN_(HAS_LEVELING, reset_bed_level()); // After changing kinematics bed-level data is no longer valid
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     recalc_delta_settings();
   };
   START_MENU();

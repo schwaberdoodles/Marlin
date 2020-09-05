@@ -116,11 +116,7 @@
 #define DIGIPOTS_I2C_SDA_E1                   77  // J6
 
 #ifndef DIGIPOT_I2C_ADDRESS_A
-<<<<<<< HEAD
-  #define DIGIPOT_I2C_ADDRESS_A 0x2F              // unshifted slave address (5E <- 2F << 1)
-=======
   #define DIGIPOT_I2C_ADDRESS_A             0x2F  // unshifted slave address (5E <- 2F << 1)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 //
@@ -163,11 +159,7 @@
 #define HBP_PIN                               45  // L4
 #define EXTRA_FET_PIN                         44  // L5
 
-<<<<<<< HEAD
-#if HOTENDS > 1
-=======
 #if HAS_MULTI_HOTEND
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #if TEMP_SENSOR_BED
     #define IS_EEB
   #else
@@ -215,10 +207,7 @@
 #define LED_PIN                               13  // B7
 #define CUTOFF_RESET_PIN                      16  // H1
 #define CUTOFF_TEST_PIN                       17  // H0
-<<<<<<< HEAD
-=======
 #define CUTOFF_SR_CHECK_PIN                   70  // G4 (TOSC1)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // LCD / Controller

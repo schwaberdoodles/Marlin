@@ -13,11 +13,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
-<<<<<<< HEAD
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-=======
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -90,13 +86,8 @@
 
 #define FAN_PIN                             PA15  // pin 77 (4cm Fan)
 #define FAN_SOFT_PWM                              // Required to avoid issues with heating or STLink
-<<<<<<< HEAD
-#define FAN_MIN_PWM 35                            // Fan will not start in 1-30 range
-#define FAN_MAX_PWM 255
-=======
 #define FAN_MIN_PWM                           35  // Fan will not start in 1-30 range
 #define FAN_MAX_PWM                          255
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //#define BEEPER_PIN                        PD13  // pin 60 (Servo PWM output 5V/GND on Board V0G+) made for BL-Touch sensor
                                  // Can drive a PC Buzzer, if connected between PWM and 5V pins
@@ -139,25 +130,18 @@
 #define DOGLCD_MOSI                         -1    // Prevent auto-define by Conditionals_post.h
 #define DOGLCD_SCK                          -1
 
-<<<<<<< HEAD
-=======
 #define GRAPHICAL_TFT_UPSCALE                  2
 #define TFT_WIDTH                            320
 #define TFT_HEIGHT                           240
 #define TFT_PIXEL_OFFSET_X                    32
 #define TFT_PIXEL_OFFSET_Y                    32
 
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 /**
  * Note: Alfawise U20/U30 boards DON'T use SPI2, as the hardware designer
  * mixed up MOSI and MISO pins. SPI is managed in SW, and needs pins
  * declared below.
  */
-<<<<<<< HEAD
-#if ENABLED(TOUCH_BUTTONS)
-=======
 #if NEED_TOUCH_PINS
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define TOUCH_CS_PIN                      PB12  // pin 51 SPI2_NSS
   #define TOUCH_SCK_PIN                     PB13  // pin 52
   #define TOUCH_MOSI_PIN                    PB14  // pin 53
@@ -169,15 +153,6 @@
 // Persistent Storage
 // If no option is selected below the SD Card will be used
 //
-<<<<<<< HEAD
-//#define SPI_EEPROM
-#define FLASH_EEPROM_EMULATION
-
-#undef E2END
-#if ENABLED(SPI_EEPROM)
-  // SPI1 EEPROM Winbond W25Q64 (8MB/64Mbits)
-  #define SPI_CHAN_EEPROM1 1
-=======
 #if NO_EEPROM_SELECTED
   //#define SPI_EEPROM
   #define FLASH_EEPROM_EMULATION
@@ -186,22 +161,10 @@
 #if ENABLED(SPI_EEPROM)
   // SPI1 EEPROM Winbond W25Q64 (8MB/64Mbits)
   #define SPI_CHAN_EEPROM1                     1
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define SPI_EEPROM1_CS                    PC5   // pin 34
   #define EEPROM_SCK          BOARD_SPI1_SCK_PIN  // PA5 pin 30
   #define EEPROM_MISO        BOARD_SPI1_MISO_PIN  // PA6 pin 31
   #define EEPROM_MOSI        BOARD_SPI1_MOSI_PIN  // PA7 pin 32
-<<<<<<< HEAD
-  #define EEPROM_PAGE_SIZE 0x1000U                // 4KB (from datasheet)
-  #define E2END ((16 * EEPROM_PAGE_SIZE)-1) // Limit to 64KB for now...
-#elif ENABLED(FLASH_EEPROM_EMULATION)
-  // SoC Flash (framework-arduinoststm32-maple/STM32F1/libraries/EEPROM/EEPROM.h)
-  #define EEPROM_START_ADDRESS (0x8000000UL + (512 * 1024) - 2 * EEPROM_PAGE_SIZE)
-  #define EEPROM_PAGE_SIZE     (0x800U)     // 2KB, but will use 2x more (4KB)
-  #define E2END (EEPROM_PAGE_SIZE - 1)
-#else
-  #define E2END (0x7FFU) // On SD, Limit to 2KB, require this amount of RAM
-=======
   #define EEPROM_PAGE_SIZE               0x1000U  // 4KB (from datasheet)
   #define MARLIN_EEPROM_SIZE 16UL * (EEPROM_PAGE_SIZE)   // Limit to 64KB for now...
 #elif ENABLED(FLASH_EEPROM_EMULATION)
@@ -211,5 +174,4 @@
   #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
 #else
   #define MARLIN_EEPROM_SIZE              0x800U  // On SD, Limit to 2KB, require this amount of RAM
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif

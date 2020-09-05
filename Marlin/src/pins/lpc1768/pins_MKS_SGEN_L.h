@@ -50,11 +50,7 @@
 //
 // Limit Switches
 //
-<<<<<<< HEAD
-#if X_STALL_SENSITIVITY
-=======
 #ifdef X_STALL_SENSITIVITY
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define X_STOP_PIN                  X_DIAG_PIN
   #if X_HOME_DIR < 0
     #define X_MAX_PIN                      P1_28  // X+
@@ -66,11 +62,7 @@
   #define X_MAX_PIN                        P1_28  // X+
 #endif
 
-<<<<<<< HEAD
-#if Y_STALL_SENSITIVITY
-=======
 #ifdef Y_STALL_SENSITIVITY
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define Y_STOP_PIN                  Y_DIAG_PIN
   #if Y_HOME_DIR < 0
     #define Y_MAX_PIN                      P1_26  // Y+
@@ -82,11 +74,7 @@
   #define Y_MAX_PIN                        P1_26  // Y+
 #endif
 
-<<<<<<< HEAD
-#if Z_STALL_SENSITIVITY
-=======
 #ifdef Z_STALL_SENSITIVITY
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define Z_STOP_PIN                  Z_DIAG_PIN
   #if Z_HOME_DIR < 0
     #define Z_MAX_PIN                      P1_24  // Z+

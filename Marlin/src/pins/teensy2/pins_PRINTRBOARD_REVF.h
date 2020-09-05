@@ -158,11 +158,7 @@
 #define DAC_STEPPER_MAX                      3520
 #define DAC_STEPPER_VREF                       1  // internal Vref, gain 1x = 2.048V
 #define DAC_STEPPER_GAIN                       0
-<<<<<<< HEAD
-#define DAC_OR_ADDRESS 0x00
-=======
 #define DAC_OR_ADDRESS                      0x00
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Temperature Sensors
@@ -250,11 +246,7 @@
     //#define MOSI                            22  //         12               B2                ICSP-03             EXP2-05
     //#define MISO                            23  //         13               B3                ICSP-06             EXP2-05
 
-<<<<<<< HEAD
-    // increase delays
-=======
     // Alter timing for graphical display
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     #define BOARD_ST7920_DELAY_1 DELAY_NS(313)
     #define BOARD_ST7920_DELAY_2 DELAY_NS(313)
     #define BOARD_ST7920_DELAY_3 DELAY_NS(313)

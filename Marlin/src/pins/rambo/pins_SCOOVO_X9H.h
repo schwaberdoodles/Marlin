@@ -92,11 +92,7 @@
 #define E1_MS2_PIN                            64
 
 #define DIGIPOTSS_PIN                         38
-<<<<<<< HEAD
-#define DIGIPOT_CHANNELS {4,5,3,0,1}   // X Y Z E0 E1 digipot channels to stepper driver mapping
-=======
 #define DIGIPOT_CHANNELS {4,5,3,0,1}              // X Y Z E0 E1 digipot channels to stepper driver mapping
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Temperature Sensors

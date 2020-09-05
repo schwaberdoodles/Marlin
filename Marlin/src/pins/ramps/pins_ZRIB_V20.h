@@ -39,12 +39,6 @@
 #define ZRIB_V20_D29_PIN                      29
 #define ZRIB_V20_D37_PIN                      37
 
-<<<<<<< HEAD
-#define ORIG_E0_AUTO_FAN_PIN     ZRIB_V20_D6_PIN
-#define ORIG_E1_AUTO_FAN_PIN     ZRIB_V20_D6_PIN
-#define ORIG_E2_AUTO_FAN_PIN     ZRIB_V20_D6_PIN
-#define ORIG_E3_AUTO_FAN_PIN     ZRIB_V20_D6_PIN
-=======
 //
 // Auto fans
 //
@@ -60,7 +54,6 @@
 #ifndef E3_AUTO_FAN_PIN
   #define E3_AUTO_FAN_PIN        ZRIB_V20_D6_PIN
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #ifndef FILWIDTH_PIN
   #define FILWIDTH_PIN                        11  // Analog Input
@@ -76,8 +69,6 @@
   #undef ADC_KEYPAD_PIN
   #undef BEEPER_PIN
 
-<<<<<<< HEAD
-=======
   #undef SHIFT_OUT
   #undef SHIFT_CLK
   #undef SHIFT_LD
@@ -85,7 +76,6 @@
   #undef BTN_EN2
   #undef BTN_ENC
 
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define LCD_PINS_RS           ZRIB_V20_D16_PIN
   #define LCD_PINS_ENABLE       ZRIB_V20_D17_PIN
   #define LCD_PINS_D4           ZRIB_V20_D23_PIN

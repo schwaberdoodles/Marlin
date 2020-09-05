@@ -881,10 +881,6 @@ private:
 
   TERN_(CONTROLLER_FAN_EDITABLE, static void M710());
 
-  #if ENABLED(CONTROLLER_FAN_EDITABLE)
-    static void M710();
-  #endif
-
   static void T(const uint8_t tool_index);
 
 };

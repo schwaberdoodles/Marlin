@@ -49,11 +49,7 @@
 //
 // Limit Switches
 //
-<<<<<<< HEAD
-#if X_STALL_SENSITIVITY
-=======
 #ifdef X_STALL_SENSITIVITY
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define X_STOP_PIN                  X_DIAG_PIN
   #if X_HOME_DIR < 0
     #define X_MAX_PIN                      P1_26  // E0DET
@@ -64,11 +60,7 @@
   #define X_STOP_PIN                       P1_29  // X-STOP
 #endif
 
-<<<<<<< HEAD
-#if Y_STALL_SENSITIVITY
-=======
 #ifdef Y_STALL_SENSITIVITY
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define Y_STOP_PIN                  Y_DIAG_PIN
   #if Y_HOME_DIR < 0
     #define Y_MAX_PIN                      P1_25  // E1DET
@@ -79,11 +71,7 @@
   #define Y_STOP_PIN                       P1_28  // Y-STOP
 #endif
 
-<<<<<<< HEAD
-#if Z_STALL_SENSITIVITY
-=======
 #ifdef Z_STALL_SENSITIVITY
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #define Z_STOP_PIN                  Z_DIAG_PIN
   #if Z_HOME_DIR < 0
     #define Z_MAX_PIN                      P1_00  // PWRDET
@@ -255,25 +243,6 @@
   #elif ENABLED(CR10_STOCKDISPLAY)
     #define BTN_ENC                        P0_28  // (58) open-drain
     #define LCD_PINS_RS                    P1_22
-<<<<<<< HEAD
-
-    #define BTN_EN1                        P1_18
-    #define BTN_EN2                        P1_20
-
-    #define LCD_PINS_ENABLE                P1_23
-    #define LCD_PINS_D4                    P1_21
-
-  #else
-    #define BTN_ENC                        P0_28  // (58) open-drain
-    #define LCD_PINS_RS                    P1_19
-
-    #define BTN_EN1                        P3_26  // (31) J3-2 & AUX-4
-    #define BTN_EN2                        P3_25  // (33) J3-4 & AUX-4
-
-    #define LCD_PINS_ENABLE                P1_18
-    #define LCD_PINS_D4                    P1_20
-
-=======
 
     #define BTN_EN1                        P1_18
     #define BTN_EN2                        P1_20
@@ -348,7 +317,6 @@
     #define LCD_PINS_ENABLE                P1_18
     #define LCD_PINS_D4                    P1_20
 
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     #define LCD_SDSS                       P0_16  // (16) J3-7 & AUX-4
 
     #if SD_CONNECTION_IS(LCD)

@@ -95,11 +95,7 @@ opt_add M100_FREE_MEMORY_DUMPER
 opt_add M100_FREE_MEMORY_CORRUPTOR
 opt_set PWM_MOTOR_CURRENT "{ 1300, 1300, 1250 }"
 opt_set I2C_SLAVE_ADDRESS 63
-<<<<<<< HEAD:buildroot/share/tests/mega2560-tests
-exec_test $1 $2 "MEGACONTROLLER | Ultimaker LCD | M100 | PWM_MOTOR_CURRENT | PRINTCOUNTER | Advanced Pause ..."
-=======
 exec_test $1 $2 "MEGACONTROLLER | Minipanel | M100 | PWM_MOTOR_CURRENT | PRINTCOUNTER | Advanced Pause ..."
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935:buildroot/tests/mega2560-tests
 
 #
 # Mixing Extruder with 5 steppers, Greek

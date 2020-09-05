@@ -2137,7 +2137,7 @@ static_assert(hbm[Z_AXIS] >= 0, "HOMING_BUMP_MM.Z must be greater than or equal 
 /**
  * Auto Fan check for PWM pins
  */
-#if HAS_AUTO_FAN && EXTRUDER_AUTO_FAN_SPEED != 255 && DISABLED(NO_COMPILE_TIME_PWM)
+#if HAS_AUTO_FAN && EXTRUDER_AUTO_FAN_SPEED != 255
   #define AF_ERR_SUFF "_AUTO_FAN_PIN is not a PWM pin. Set EXTRUDER_AUTO_FAN_SPEED to 255."
   #if HAS_AUTO_FAN_0
     static_assert(_TEST_PWM(E0_AUTO_FAN_PIN), "E0" AF_ERR_SUFF);
@@ -2845,15 +2845,9 @@ static_assert(   _ARR_TEST(3,0) && _ARR_TEST(3,1) && _ARR_TEST(3,2)
 
 #if ENABLED(BACKLASH_COMPENSATION)
   #ifndef BACKLASH_DISTANCE_MM
-<<<<<<< HEAD
-    #error "BACKLASH_COMPENSATION requires BACKLASH_DISTANCE_MM"
-  #elif !defined(BACKLASH_CORRECTION)
-    #error "BACKLASH_COMPENSATION requires BACKLASH_CORRECTION"
-=======
     #error "BACKLASH_COMPENSATION requires BACKLASH_DISTANCE_MM."
   #elif !defined(BACKLASH_CORRECTION)
     #error "BACKLASH_COMPENSATION requires BACKLASH_CORRECTION."
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   #elif IS_CORE
     constexpr float backlash_arr[] = BACKLASH_DISTANCE_MM;
     static_assert(!backlash_arr[CORE_AXIS_1] && !backlash_arr[CORE_AXIS_2],

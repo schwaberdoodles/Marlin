@@ -104,12 +104,6 @@
 // Auto fans
 //
 #define AUTO_FAN_PIN                       P2_04  // FET 4
-<<<<<<< HEAD
-
-#define ORIG_E0_AUTO_FAN_PIN        AUTO_FAN_PIN
-#define ORIG_E1_AUTO_FAN_PIN        AUTO_FAN_PIN
-#define ORIG_E2_AUTO_FAN_PIN        AUTO_FAN_PIN
-=======
 #ifndef E0_AUTO_FAN_PIN
   #define E0_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
@@ -119,7 +113,6 @@
 #ifndef E2_AUTO_FAN_PIN
   #define E2_AUTO_FAN_PIN           AUTO_FAN_PIN
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Misc. Functions

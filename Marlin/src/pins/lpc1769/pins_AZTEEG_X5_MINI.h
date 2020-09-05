@@ -82,19 +82,11 @@
 // DIGIPOT slave addresses
 //
 #ifndef DIGIPOT_I2C_ADDRESS_A
-<<<<<<< HEAD
-  #define DIGIPOT_I2C_ADDRESS_A 0x2C              // unshifted slave address for first DIGIPOT
-#endif
-
-#ifndef DIGIPOT_I2C_ADDRESS_B
-  #define DIGIPOT_I2C_ADDRESS_B 0x2E              // unshifted slave address for second DIGIPOT
-=======
   #define DIGIPOT_I2C_ADDRESS_A             0x2C  // unshifted slave address for first DIGIPOT
 #endif
 
 #ifndef DIGIPOT_I2C_ADDRESS_B
   #define DIGIPOT_I2C_ADDRESS_B             0x2E  // unshifted slave address for second DIGIPOT
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 //

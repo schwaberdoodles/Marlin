@@ -44,13 +44,9 @@
 #define RAMPS_D9_PIN                           8
 #define MOSFET_D_PIN                          12
 
-<<<<<<< HEAD
-#define CASE_LIGHT_PIN                        -1  // Hardware PWM but one is not available on expansion header
-=======
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                      -1  // Hardware PWM but one is not available on expansion header
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #include "pins_RAMPS.h"
 

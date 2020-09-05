@@ -59,17 +59,12 @@
   #define TEMP_BED_PIN                  P0_23_A0  // A0 (T0) - (67) - TEMP_BED_PIN
 #endif
 
-<<<<<<< HEAD
-#if HOTENDS == 1 && TEMP_SENSOR_PROBE
-  #define TEMP_PROBE_PIN              TEMP_1_PIN
-=======
 #if HOTENDS == 1
   #if TEMP_SENSOR_PROBE
     #define TEMP_PROBE_PIN            TEMP_1_PIN
   #elif TEMP_SENSOR_CHAMBER
     #define TEMP_CHAMBER_PIN          TEMP_1_PIN
   #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 //

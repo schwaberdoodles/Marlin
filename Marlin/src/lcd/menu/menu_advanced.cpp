@@ -254,13 +254,8 @@ void menu_backlash();
     //
     #if BOTH(AUTOTEMP, HAS_TEMP_HOTEND)
       EDIT_ITEM(bool, MSG_AUTOTEMP, &planner.autotemp_enabled);
-<<<<<<< HEAD
-      EDIT_ITEM(float3, MSG_MIN, &planner.autotemp_min, 0, float(HEATER_0_MAXTEMP) - 15);
-      EDIT_ITEM(float3, MSG_MAX, &planner.autotemp_max, 0, float(HEATER_0_MAXTEMP) - 15);
-=======
       EDIT_ITEM(float3, MSG_MIN, &planner.autotemp_min, 0, float(HEATER_0_MAXTEMP) - HOTEND_OVERSHOOT);
       EDIT_ITEM(float3, MSG_MAX, &planner.autotemp_max, 0, float(HEATER_0_MAXTEMP) - HOTEND_OVERSHOOT);
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
       EDIT_ITEM(float42_52, MSG_FACTOR, &planner.autotemp_factor, 0, 10);
     #endif
 
@@ -389,22 +384,7 @@ void menu_backlash();
 
   // M201 / M204 Accelerations
   void menu_advanced_acceleration() {
-<<<<<<< HEAD
-    START_MENU();
-    BACK_ITEM(MSG_ADVANCED_SETTINGS);
-
     const float max_accel = _MAX(planner.settings.max_acceleration_mm_per_s2[A_AXIS], planner.settings.max_acceleration_mm_per_s2[B_AXIS], planner.settings.max_acceleration_mm_per_s2[C_AXIS]);
-    // M204 P Acceleration
-    EDIT_ITEM_FAST(float5_25, MSG_ACC, &planner.settings.acceleration, 25, max_accel);
-
-    // M204 R Retract Acceleration
-    EDIT_ITEM_FAST(float5, MSG_A_RETRACT, &planner.settings.retract_acceleration, 100, planner.settings.max_acceleration_mm_per_s2[E_AXIS_N(active_extruder)]);
-
-    // M204 T Travel Acceleration
-    EDIT_ITEM_FAST(float5_25, MSG_A_TRAVEL, &planner.settings.travel_acceleration, 25, max_accel);
-=======
-    const float max_accel = _MAX(planner.settings.max_acceleration_mm_per_s2[A_AXIS], planner.settings.max_acceleration_mm_per_s2[B_AXIS], planner.settings.max_acceleration_mm_per_s2[C_AXIS]);
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
     // M201 settings
     constexpr xyze_ulong_t max_accel_edit =

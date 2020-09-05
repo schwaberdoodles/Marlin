@@ -949,9 +949,6 @@ void setup() {
   #if HAS_STEPPER_RESET
     SETUP_RUN(disableStepperDrivers());
   #endif
-  #if HAS_FILAMENT_SENSOR
-    runout.setup();
-  #endif
 
   #if HAS_TMC_SPI
     #if DISABLED(TMC_USE_SW_SPI)

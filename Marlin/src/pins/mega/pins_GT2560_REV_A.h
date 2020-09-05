@@ -44,9 +44,6 @@
 #define Y_MIN_PIN                             26
 #define Y_MAX_PIN                             28
 #define Z_MIN_PIN                             30
-<<<<<<< HEAD
-#define Z_MAX_PIN                             32
-=======
 
 #if ENABLED(BLTOUCH)
   #if MB(GT2560_REV_A_PLUS)
@@ -58,7 +55,6 @@
 #else
   #define Z_MAX_PIN                           32
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Steppers

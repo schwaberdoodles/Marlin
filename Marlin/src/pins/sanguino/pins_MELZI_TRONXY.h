@@ -63,12 +63,3 @@
 #define BTN_EN1                               10
 #define BTN_EN2                               11
 #define BTN_ENC                               26
-<<<<<<< HEAD
-
-#if HAS_GRAPHICAL_LCD
-  #define BOARD_ST7920_DELAY_1 DELAY_NS(0)
-  #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_3 DELAY_NS(0)
-#endif
-=======
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935

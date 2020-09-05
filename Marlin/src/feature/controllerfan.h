@@ -62,15 +62,7 @@ class ControllerFan {
     #endif
     static inline bool state() { return speed > 0; }
     static inline void init() { reset(); }
-<<<<<<< HEAD
-    static inline void reset() {
-      #if ENABLED(CONTROLLER_FAN_EDITABLE)
-        settings = controllerFan_defaults;
-      #endif
-    }
-=======
     static inline void reset() { TERN_(CONTROLLER_FAN_EDITABLE, settings = controllerFan_defaults); }
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     static void setup();
     static void update();
 };

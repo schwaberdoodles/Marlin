@@ -16,11 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
-<<<<<<< HEAD
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-=======
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
  *
  */
 #pragma once
@@ -35,11 +31,7 @@
   #error "MKS Robin nano supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
-<<<<<<< HEAD
-#define BOARD_INFO_NAME "MKS Robin nano"
-=======
 #define BOARD_INFO_NAME "MKS Robin Nano"
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Release PB4 (Y_ENABLE_PIN) from JTAG NRST role
@@ -47,8 +39,6 @@
 #define DISABLE_DEBUG
 
 //
-<<<<<<< HEAD
-=======
 // EEPROM
 //
 #if EITHER(NO_EEPROM_SELECTED, FLASH_EEPROM_EMULATION)
@@ -61,7 +51,6 @@
 #define ENABLE_SPI2
 
 //
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 // Limit Switches
 //
 #define X_STOP_PIN                          PA15
@@ -106,13 +95,6 @@
 //
 // Heaters / Fans
 //
-<<<<<<< HEAD
-#define HEATER_0_PIN                        PC3   // HEATER1
-#define HEATER_1_PIN                        PB0   // HEATER2
-#define HEATER_BED_PIN                      PA0   // HOT BED
-
-#define FAN_PIN                             PB1   // FAN
-=======
 #ifndef HEATER_0_PIN
   #define HEATER_0_PIN                      PC3
 #endif
@@ -131,7 +113,6 @@
 #ifndef HEATER_BED_PIN
   #define HEATER_BED_PIN                    PA0
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Thermocouples
@@ -145,9 +126,6 @@
 #define POWER_LOSS_PIN                      PA2   // PW_DET
 #define PS_ON_PIN                           PA3   // PW_OFF
 
-<<<<<<< HEAD
-#define LED_PIN                             PB2
-=======
 //#define SUICIDE_PIN                       PB2   // Enable MKSPWC support ROBIN NANO v1.2 ONLY
 //#define SUICIDE_PIN_INVERTING            false
 
@@ -163,15 +141,10 @@
 #define MT_DET_PIN_INVERTING               false
 
 #define WIFI_IO0_PIN                        PC13
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // SD Card
 //
-<<<<<<< HEAD
-#define SDIO_SUPPORT
-#define SD_DETECT_PIN                       PD12
-=======
 #ifndef SDCARD_CONNECTION
   #define SDCARD_CONNECTION              ONBOARD
 #endif
@@ -180,7 +153,6 @@
 #define SDIO_CLOCK                       4500000  // 4.5 MHz
 #define SD_DETECT_PIN                       PD12
 #define ONBOARD_SD_CS_PIN                   PC11
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // LCD / Controller
@@ -192,23 +164,6 @@
  * If the screen stays white, disable 'LCD_RESET_PIN'
  * to let the bootloader init the screen.
  */
-<<<<<<< HEAD
-#if ENABLED(FSMC_GRAPHICAL_TFT)
-  #define FSMC_CS_PIN                       PD7   // NE4
-  #define FSMC_RS_PIN                       PD11  // A0
-
-  #define LCD_RESET_PIN                     PC6   // FSMC_RST
-  #define NO_LCD_REINIT                           // Suppress LCD re-initialization
-
-  #define LCD_BACKLIGHT_PIN                 PD13
-
-  #if ENABLED(TOUCH_BUTTONS)
-    #define TOUCH_CS_PIN                    PA7   // SPI2_NSS
-    #define TOUCH_SCK_PIN                   PB13  // SPI2_SCK
-    #define TOUCH_MISO_PIN                  PB14  // SPI2_MISO
-    #define TOUCH_MOSI_PIN                  PB15  // SPI2_MOSI
-  #endif
-=======
 
 // Shared FSMC Configs
 #if HAS_FSMC_TFT
@@ -327,5 +282,4 @@
   #define W25QXX_MOSI_PIN                   PB15
   #define W25QXX_MISO_PIN                   PB14
   #define W25QXX_SCK_PIN                    PB13
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif

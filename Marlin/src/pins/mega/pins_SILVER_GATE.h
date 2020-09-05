@@ -61,14 +61,10 @@
 
 #define HEATER_0_PIN                           7
 
-<<<<<<< HEAD
-#define ORIG_E0_AUTO_FAN_PIN                   3  // Use this by NOT overriding E0_AUTO_FAN_PIN
-=======
 #ifndef E0_AUTO_FAN_PIN
   #define E0_AUTO_FAN_PIN                      3
 #endif
 
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define CONTROLLER_FAN_PIN                     2
 
 #define TEMP_0_PIN                             7  // Analog Input
@@ -97,11 +93,7 @@
 
 #define STAT_LED_RED_PIN                      23
 #define STAT_LED_BLUE_PIN                     26
-<<<<<<< HEAD
-#define CASE_LIGHT_PIN                        51
-=======
 
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                      51
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935

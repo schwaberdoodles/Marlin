@@ -172,11 +172,7 @@
 //
 // EEPROM
 //
-<<<<<<< HEAD
-#define E2END 0x7FFF                              // 32Kb (24lc256)
-=======
 #define MARLIN_EEPROM_SIZE                0x8000  // 32Kb (24lc256)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define I2C_EEPROM                                // EEPROM on I2C-0
 //#define EEPROM_SD                               // EEPROM on SDCARD
 //#define SPI_EEPROM                              // EEPROM on SPI-0
@@ -244,17 +240,9 @@
 
   #elif ENABLED(MKS_MINI_12864)
 
-<<<<<<< HEAD
-    #define ORIG_BEEPER_PIN                   62
-
     #define DOGLCD_A0                         52
     #define DOGLCD_CS                         50
 
-=======
-    #define DOGLCD_A0                         52
-    #define DOGLCD_CS                         50
-
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     #define SD_DETECT_PIN                     51
 
   #endif

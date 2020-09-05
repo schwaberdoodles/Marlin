@@ -102,14 +102,10 @@
 // Misc. Functions
 //
 #define PS_ON_PIN                             15
-<<<<<<< HEAD
-#define CASE_LIGHT_PIN                        15  // Hardware PWM
-=======
 
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                      15  // Hardware PWM
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 // A pin for debugging
 #define DEBUG_PIN                              0

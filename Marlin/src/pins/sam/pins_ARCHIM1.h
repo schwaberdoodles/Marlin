@@ -46,10 +46,7 @@
 //
 // Timers
 //
-<<<<<<< HEAD
-=======
 // These are already defined in DUE, so must be undefined first
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define STEP_TIMER_NUM                         3
 #define HAL_STEP_TIMER_ISR()  void TC3_Handler()
 

@@ -213,12 +213,6 @@
   #define FIL_RUNOUT_PIN                      39  // SERVO2_PIN
 #endif
 
-<<<<<<< HEAD
-#define I2C_EEPROM
-#define E2END 0x1FFF                              // 8KB
-
-=======
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 //
 // M3/M4/M5 - Spindle/Laser Control
 //

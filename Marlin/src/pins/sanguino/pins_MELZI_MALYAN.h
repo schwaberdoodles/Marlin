@@ -56,13 +56,3 @@
 #define BTN_EN1                              30
 #define BTN_EN2                              29
 #define BTN_ENC                              28
-<<<<<<< HEAD
-
-// Alter timing for graphical display
-#if HAS_GRAPHICAL_LCD
-  #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
-#endif
-=======
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935

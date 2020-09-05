@@ -70,13 +70,10 @@
 //
 #ifndef Z_MIN_PROBE_PIN
   #define Z_MIN_PROBE_PIN                     30
-<<<<<<< HEAD
-=======
 #endif
 
 #ifndef FIL_RUNOUT_PIN
   #define FIL_RUNOUT_PIN                       5
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 //
@@ -115,11 +112,7 @@
 #define E1_MS2_PIN                            64
 
 #define DIGIPOTSS_PIN                         38
-<<<<<<< HEAD
-#define DIGIPOT_CHANNELS  { 4,5,3,0,1 }   // X Y Z E0 E1 digipot channels to stepper driver mapping
-=======
 #define DIGIPOT_CHANNELS  { 4,5,3,0,1 }           // X Y Z E0 E1 digipot channels to stepper driver mapping
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #ifndef DIGIPOT_MOTOR_CURRENT
   #define DIGIPOT_MOTOR_CURRENT { 135,135,135,135,135 }   // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 #endif
@@ -151,14 +144,10 @@
 #define SDSS                                  53
 #define LED_PIN                               13
 #define PS_ON_PIN                              4
-<<<<<<< HEAD
-#define CASE_LIGHT_PIN                        46
-=======
 
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                      46
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #ifndef FILWIDTH_PIN
   #define FILWIDTH_PIN                         3  // Analog Input
@@ -170,8 +159,6 @@
 #define SPINDLE_LASER_PWM_PIN                 45  // Hardware PWM
 #define SPINDLE_LASER_ENA_PIN                 31  // Pullup!
 #define SPINDLE_DIR_PIN                       32
-<<<<<<< HEAD
-=======
 
 //
 // SPI for Max6675 or Max31855 Thermocouple
@@ -179,7 +166,6 @@
 #ifndef MAX6675_SS_PIN
   #define MAX6675_SS_PIN                      32  // SPINDLE_DIR_PIN / STAT_LED_BLUE_PIN
 #endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // M7/M8/M9 - Coolant Control

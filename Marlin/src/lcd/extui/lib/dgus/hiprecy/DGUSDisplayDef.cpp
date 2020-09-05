@@ -370,15 +370,6 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
 
   // Temperature Data
   #if HOTENDS >= 1
-<<<<<<< HEAD
-    VPHELPER(VP_T_E0_Is, &thermalManager.temp_hotend[0].celsius, nullptr, DGUSScreenVariableHandler::DGUSLCD_SendFloatAsLongValueToDisplay<0>),
-    VPHELPER(VP_T_E0_Set, &thermalManager.temp_hotend[0].target, DGUSScreenVariableHandler::HandleTemperatureChanged, &DGUSScreenVariableHandler::DGUSLCD_SendWordValueToDisplay),
-    VPHELPER(VP_Flowrate_E0, &planner.flow_percentage[ExtUI::extruder_t::E0], DGUSScreenVariableHandler::HandleFlowRateChanged, &DGUSScreenVariableHandler::DGUSLCD_SendWordValueToDisplay),
-    VPHELPER(VP_EPos, &destination.e, nullptr, DGUSScreenVariableHandler::DGUSLCD_SendFloatAsLongValueToDisplay<2>),
-    VPHELPER(VP_MOVE_E0, nullptr, &DGUSScreenVariableHandler::HandleManualExtrude, nullptr),
-    VPHELPER(VP_E0_CONTROL, &thermalManager.temp_hotend[0].target, &DGUSScreenVariableHandler::HandleHeaterControl, nullptr),
-    VPHELPER(VP_E0_STATUS, &thermalManager.temp_hotend[0].target, nullptr, &DGUSScreenVariableHandler::DGUSLCD_SendHeaterStatusToDisplay),
-=======
     VPHELPER(VP_T_E0_Is, &thermalManager.temp_hotend[0].celsius, nullptr, ScreenHandler.DGUSLCD_SendFloatAsLongValueToDisplay<0>),
     VPHELPER(VP_T_E0_Set, &thermalManager.temp_hotend[0].target, ScreenHandler.HandleTemperatureChanged, &ScreenHandler.DGUSLCD_SendWordValueToDisplay),
     VPHELPER(VP_Flowrate_E0, &planner.flow_percentage[ExtUI::extruder_t::E0], ScreenHandler.HandleFlowRateChanged, &ScreenHandler.DGUSLCD_SendWordValueToDisplay),
@@ -386,7 +377,6 @@ const struct DGUS_VP_Variable ListOfVP[] PROGMEM = {
     VPHELPER(VP_MOVE_E0, nullptr, &ScreenHandler.HandleManualExtrude, nullptr),
     VPHELPER(VP_E0_CONTROL, &thermalManager.temp_hotend[0].target, &ScreenHandler.HandleHeaterControl, nullptr),
     VPHELPER(VP_E0_STATUS, &thermalManager.temp_hotend[0].target, nullptr, &ScreenHandler.DGUSLCD_SendHeaterStatusToDisplay),
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     #if ENABLED(DGUS_PREHEAT_UI)
       VPHELPER(VP_E0_BED_PREHEAT, nullptr, &ScreenHandler.HandlePreheat, nullptr),
     #endif

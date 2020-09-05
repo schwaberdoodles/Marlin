@@ -147,11 +147,7 @@
 
 #define FET_SAFETY_PIN                        31  // PA7  must be pulsed low every 50 mS or FETs are turned off
 #define FET_SAFETY_DELAY                      50  // 50 mS delay between pulses
-<<<<<<< HEAD
-#define FET_SAFETY_INVERTED true                  // true - negative going pulse of 2 uS
-=======
 #define FET_SAFETY_INVERTED                 true  // true - negative going pulse of 2 uS
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 /////////////////////////////////////////////////////////
 

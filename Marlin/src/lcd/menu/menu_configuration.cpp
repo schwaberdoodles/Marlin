@@ -249,29 +249,7 @@ void menu_advanced_settings();
     END_MENU();
   }
 
-<<<<<<< HEAD
-#if ENABLED(CONTROLLER_FAN_MENU)
-
-  #include "../../feature/controllerfan.h"
-
-  void menu_controller_fan() {
-    START_MENU();
-    BACK_ITEM(MSG_CONFIGURATION);
-    EDIT_ITEM_FAST(percent, MSG_CONTROLLER_FAN_IDLE_SPEED, &controllerFan.settings.idle_speed, _MAX(1, CONTROLLERFAN_SPEED_MIN) - 1, 255);
-    EDIT_ITEM(bool, MSG_CONTROLLER_FAN_AUTO_ON, &controllerFan.settings.auto_mode);
-    if (controllerFan.settings.auto_mode) {
-      EDIT_ITEM_FAST(percent, MSG_CONTROLLER_FAN_SPEED, &controllerFan.settings.active_speed, _MAX(1, CONTROLLERFAN_SPEED_MIN) - 1, 255);
-      EDIT_ITEM(uint16_4, MSG_CONTROLLER_FAN_DURATION, &controllerFan.settings.duration, 0, 4800);
-    }
-    END_MENU();
-  }
-
 #endif
-
-#if ENABLED(CASE_LIGHT_MENU)
-=======
-#endif
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 #if ENABLED(CONTROLLER_FAN_MENU)
 
@@ -377,10 +355,6 @@ void menu_configuration() {
     SUBMENU(MSG_CONTROLLER_FAN, menu_controller_fan);
   #endif
 
-<<<<<<< HEAD
-  const bool busy = printer_busy();
-=======
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
   if (!busy) {
     #if EITHER(DELTA_CALIBRATION_MENU, DELTA_AUTO_CALIBRATION)
       SUBMENU(MSG_DELTA_CALIBRATE, menu_delta_calibrate);

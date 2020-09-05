@@ -200,11 +200,8 @@ void HAL_idletask();
 
 #define PLATFORM_M997_SUPPORT
 void flashFirmware(const int16_t);
-<<<<<<< HEAD
-=======
 
 #define HAL_CAN_SET_PWM_FREQ   // This HAL supports PWM Frequency adjustment
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 /**
  * set_pwm_frequency

@@ -39,34 +39,10 @@
 #define MKS_HAS_LPC1769
 #include "../lpc1768/pins_MKS_SBASE.h"
 
-<<<<<<< HEAD
-#undef E1_STEP_PIN
-#undef E1_DIR_PIN
-#undef E1_ENABLE_PIN
-
-//#undef BTN_EN1
-//#undef BTN_EN2
-//#define BTN_EN1                          P1_23  // EXP2.5
-//#define BTN_EN2                          P1_22  // EXP2.3
-
-=======
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #if HAS_TMC_UART
   /**
    * TMC2208/TMC2209 stepper drivers
    */
-<<<<<<< HEAD
-  #define X_SERIAL_TX_PIN                  P4_29  // J8-2
-  #define X_SERIAL_RX_PIN                  P4_29  // J8-2
-
-  #define Y_SERIAL_TX_PIN                  P2_08  // J8-3
-  #define Y_SERIAL_RX_PIN                  P2_08  // J8-3
-
-  #define Z_SERIAL_TX_PIN                  P2_11  // J8-4
-  #define Z_SERIAL_RX_PIN                  P2_11  // J8-4
-  #define E0_SERIAL_TX_PIN                 P2_13  // J8-5
-  #define E0_SERIAL_RX_PIN                 P2_13  // J8-5
-=======
 
   #define X_SERIAL_TX_PIN                  P1_22  // J8-2
   #define X_SERIAL_RX_PIN                  P1_22  // J8-2
@@ -78,7 +54,6 @@
   #define E0_SERIAL_RX_PIN                 P2_11  // J8-5
   #define E1_SERIAL_TX_PIN                 P4_28  // J8-6
   #define E1_SERIAL_RX_PIN                 P4_28  // J8-6
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200

@@ -1824,19 +1824,6 @@ void MarlinSettings::postprocess() {
       }
 
       //
-      // Controller Fan
-      //
-      {
-        _FIELD_TEST(controllerFan_settings);
-        #if ENABLED(CONTROLLER_FAN_EDITABLE)
-          const controllerFan_settings_t &cfs = controllerFan.settings;
-        #else
-          controllerFan_settings_t cfs = { 0 };
-        #endif
-        EEPROM_READ(cfs);
-      }
-
-      //
       // Power-Loss Recovery
       //
       {
@@ -2759,13 +2746,6 @@ void MarlinSettings::reset() {
   // Controller Fan
   //
   TERN_(USE_CONTROLLER_FAN, controllerFan.reset());
-
-  //
-  // Controller Fan
-  //
-  #if ENABLED(USE_CONTROLLER_FAN)
-    controllerFan.reset();
-  #endif
 
   //
   // Power-Loss Recovery

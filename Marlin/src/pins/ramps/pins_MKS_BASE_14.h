@@ -38,11 +38,7 @@
 #define FAN_PIN                                9  // PH6 ** Pin18 ** PWM9
 
 // Other Mods
-<<<<<<< HEAD
-#define CASE_LIGHT_PIN                        11  // PB5 ** Pin24 ** PWM11
-=======
 
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define SERVO3_PIN                            12  // PB6 ** Pin25 ** D12
 #define PS_ON_PIN                              2  // X+ // PE4 ** Pin6  ** PWM2       **MUST BE HARDWARE PWM
 #define FILWIDTH_PIN                          15  // Y+ // PJ0 ** Pin63 ** USART3_RX  **Pin should have a pullup!
@@ -56,13 +52,10 @@
 #endif
 #ifndef RGB_LED_R_PIN
   #define RGB_LED_B_PIN                       52
-<<<<<<< HEAD
-=======
 #endif
 
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                      11  // PB5 ** Pin24 ** PWM11
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 #include "pins_MKS_BASE_common.h"

@@ -171,11 +171,7 @@
 #define TEMP_2_PIN                      P0_26_A3  // A3 - (63) - J5-3 & AUX-2
 #define TEMP_3_PIN                      P1_30_A4  // A4 - (37) - BUZZER_PIN
 //#define TEMP_4_PIN                    P1_31_A5  // A5 - (49) - SD_DETECT_PIN
-<<<<<<< HEAD
-//#define ??                  P0_03_A6   // A6 - ( 0)  - RXD0 - J4-4 & AUX-1
-=======
 //#define ??                  P0_03_A6            // A6 - ( 0)  - RXD0 - J4-4 & AUX-1
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #define FILWIDTH_PIN                    P0_02_A7  // A7 - ( 1)  - TXD0 - J4-5 & AUX-1
 
 //
@@ -351,11 +347,7 @@
   #define SD_DETECT_PIN                    P1_31  // (49) J3-1 & AUX-3 (NOT 5V tolerant)
   #define KILL_PIN                         P1_22  // (41) J5-4 & AUX-4
   #define LCD_PINS_RS                      P0_16  // (16) J3-7 & AUX-4
-<<<<<<< HEAD
-  #define LCD_SDSS                         P0_16  // (16) J3-7 & AUX-4
-=======
   #define LCD_SDSS                         P1_23  // (53) J3-5 & AUX-3
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
   #if ENABLED(NEWPANEL)
     #if ENABLED(REPRAPWORLD_KEYPAD)

@@ -89,7 +89,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(andy, Nimbler3 2.0.5.2)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(andy, Nimbler3 2.0.6.1)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -143,6 +143,7 @@
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
+#define MOTHERBOARD BOARD_BTT_SKR_MINI_E3_V1_0
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
@@ -508,9 +509,9 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
   // Creality Nimbler3
-#define DEFAULT_Kp 16.60
-#define DEFAULT_Ki 1.44
-#define DEFAULT_Kd 47.90
+#define DEFAULT_Kp 16.96
+#define DEFAULT_Ki 1.37
+#define DEFAULT_Kd 52.69
 
   // Ultimaker
   //#define DEFAULT_Kp 22.2

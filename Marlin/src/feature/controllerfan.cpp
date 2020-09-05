@@ -54,41 +54,6 @@ void ControllerFan::update() {
 
     #define MOTOR_IS_ON(A,B) (A##_ENABLE_READ() == bool(B##_ENABLE_ON))
     #define _OR_ENABLED_E(N) || MOTOR_IS_ON(E##N,E)
-<<<<<<< HEAD
-
-    const bool motor_on = MOTOR_IS_ON(Z,Z)
-      #if HAS_Z2_ENABLE
-        || MOTOR_IS_ON(Z2,Z)
-      #endif
-      #if HAS_Z3_ENABLE
-        || MOTOR_IS_ON(Z3,Z)
-      #endif
-      #if HAS_Z4_ENABLE
-        || MOTOR_IS_ON(Z4,Z)
-      #endif
-      || (DISABLED(CONTROLLER_FAN_USE_Z_ONLY) && (
-          MOTOR_IS_ON(X,X) || MOTOR_IS_ON(Y,Y)
-          #if HAS_X2_ENABLE
-            || MOTOR_IS_ON(X2,X)
-          #endif
-          #if HAS_Y2_ENABLE
-            || MOTOR_IS_ON(Y2,Y)
-          #endif
-          #if E_STEPPERS
-            REPEAT(E_STEPPERS, _OR_ENABLED_E)
-          #endif
-        )
-      )
-    ;
-
-    // If any of the drivers or the heated bed are enabled...
-    if (motor_on
-      #if HAS_HEATED_BED
-        || thermalManager.temp_bed.soft_pwm_amount > 0
-      #endif
-    ) lastMotorOn = ms; //... set time to NOW so the fan will turn on
-
-=======
 
     const bool motor_on = (
       ( DISABLED(CONTROLLER_FAN_IGNORE_Z) &&
@@ -113,16 +78,11 @@ void ControllerFan::update() {
     if (motor_on || TERN0(HAS_HEATED_BED, thermalManager.temp_bed.soft_pwm_amount > 0))
       lastMotorOn = ms; //... set time to NOW so the fan will turn on
 
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
     // Fan Settings. Set fan > 0:
     //  - If AutoMode is on and steppers have been enabled for CONTROLLERFAN_IDLE_TIME seconds.
     //  - If System is on idle and idle fan speed settings is activated.
     set_fan_speed(
-<<<<<<< HEAD
-      settings.auto_mode && lastMotorOn && PENDING(ms, lastMotorOn + settings.duration * 1000UL)
-=======
       settings.auto_mode && lastMotorOn && PENDING(ms, lastMotorOn + SEC_TO_MS(settings.duration))
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
       ? settings.active_speed : settings.idle_speed
     );
 

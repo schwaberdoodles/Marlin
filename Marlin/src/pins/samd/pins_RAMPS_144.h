@@ -44,14 +44,9 @@
 //
 // EEPROM
 //
-<<<<<<< HEAD
-#define E2END 0x7FFF                              // 32Kb (24lc256)
-#define I2C_EEPROM                                // EEPROM on I2C-0
-=======
 //#define QSPI_EEPROM                             // Use AGCM4 onboard QSPI EEPROM (Uses 4K of RAM)
 #define I2C_EEPROM                                // EEPROM on I2C-0
 #define MARLIN_EEPROM_SIZE                0x8000  // 32K (24lc256)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
 //
 // Limit Switches
@@ -135,11 +130,7 @@
 #endif
 
 #ifndef FIL_RUNOUT_PIN
-<<<<<<< HEAD
-  #define FIL_RUNOUT_PIN                       4
-=======
   #define FIL_RUNOUT_PIN                      70
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 #endif
 
 #ifndef PS_ON_PIN
@@ -482,11 +473,7 @@
       //  #define KILL_PIN         41
       //#endif
 
-<<<<<<< HEAD
-      #if ENABLED(MKS_MINI_12864)                 // Added in Marlin 1.1.6
-=======
       #if ENABLED(MKS_MINI_12864)
->>>>>>> ca194ca52ee63fe319305a79e396b8b013b4c935
 
         // TO TEST
         //#define DOGLCD_A0                   27
