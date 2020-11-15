@@ -395,9 +395,9 @@
  * The fan turns on automatically whenever any driver is enabled and turns
  * off (or reduces to idle speed) shortly after drivers are turned off.
  */
-#define USE_CONTROLLER_FAN
+//#define USE_CONTROLLER_FAN
 #if ENABLED(USE_CONTROLLER_FAN)
-  //#define CONTROLLER_FAN_PIN -1        // Set a custom pin for the controller fan
+  #define CONTROLLER_FAN_PIN -1        // Set a custom pin for the controller fan
   //#define CONTROLLER_FAN_USE_Z_ONLY    // With this option only the Z axis is considered
   //#define CONTROLLER_FAN_IGNORE_Z      // Ignore Z stepper. Useful when stepper timeout is disabled.
   #define CONTROLLERFAN_SPEED_MIN      0 // (0-255) Minimum speed. (If set below this value the fan is turned off.)
@@ -573,7 +573,7 @@
 //
 // For Z set the number of stepper drivers
 //
-#define NUM_Z_STEPPER_DRIVERS 1   // (1-4) Z options change based on how many
+#define NUM_Z_STEPPER_DRIVERS 2   // (1-4) Z options change based on how many
 
 #if NUM_Z_STEPPER_DRIVERS > 1
   //#define Z_MULTI_ENDSTOPS
@@ -737,7 +737,7 @@
  * Z Steppers Auto-Alignment
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
-//#define Z_STEPPER_AUTO_ALIGN
+#define Z_STEPPER_AUTO_ALIGN
 #if ENABLED(Z_STEPPER_AUTO_ALIGN)
   // Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
   // If not defined, probe limits will be used.
@@ -1137,7 +1137,7 @@
   #define BOOTSCREEN_TIMEOUT 4000        // (ms) Total Duration to display the boot screen(s)
 #endif
 
-#if EITHER(SDSUPPORT, LCD_SET_PROGRESS_MANUALLY) && ANY(HAS_MARLINUI_U8GLIB, HAS_MARLINUI_HD44780, IS_TFTGLCD_PANEL)
+#if EITHER(SUPPORT, LCD_SET_PROGRESS_MANUALLY) && ANY(HAS_MARLINUI_U8GLIB, HAS_MARLINUI_HD44780, IS_TFTGLCD_PANEL)
   //#define SHOW_REMAINING_TIME       // Display estimated time to completion
   #if ENABLED(SHOW_REMAINING_TIME)
     //#define USE_M73_REMAINING_TIME  // Use remaining time from M73 command instead of estimation
@@ -2296,7 +2296,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       500
+    #define Z_CURRENT       800
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
@@ -2328,7 +2328,7 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      300
+    #define E0_CURRENT      800
     #define E0_MICROSTEPS    16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
@@ -2426,14 +2426,14 @@
    * on the same serial port, either here or in your board's pins file.
    */
   #define  X_SLAVE_ADDRESS 0
-  #define  Y_SLAVE_ADDRESS 2
-  #define  Z_SLAVE_ADDRESS 1
+  #define  Y_SLAVE_ADDRESS 0
+  #define  Z_SLAVE_ADDRESS 0
   #define X2_SLAVE_ADDRESS 0
   #define Y2_SLAVE_ADDRESS 0
   #define Z2_SLAVE_ADDRESS 0
   #define Z3_SLAVE_ADDRESS 0
   #define Z4_SLAVE_ADDRESS 0
-  #define E0_SLAVE_ADDRESS 3
+  #define E0_SLAVE_ADDRESS 0
   #define E1_SLAVE_ADDRESS 0
   #define E2_SLAVE_ADDRESS 0
   #define E3_SLAVE_ADDRESS 0
@@ -2545,16 +2545,16 @@
    * IMPROVE_HOMING_RELIABILITY tunes acceleration and jerk when
    * homing and adds a guard period for endstop triggering.
    */
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
+  #define SENSORLESS_HOMING // StallGuard capable drivers only
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  75
+    #define X_STALL_SENSITIVITY  50
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
     #define Y_STALL_SENSITIVITY  75
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
-    //#define Z_STALL_SENSITIVITY  8
-    //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
+    #define Z_STALL_SENSITIVITY  8
+    #define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     //#define Z3_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     //#define Z4_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     //#define SPI_ENDSTOPS              // TMC2130 only

@@ -21,19 +21,19 @@
  */
 
 /**
- * Nimbler3 v1.0 Configuration
+ * Nimbler CR10 v1.2 Configuration
  * Based on https://github.com/MarlinFirmware/Marlin/compare/bugfix-2.0.x...squiddity:bugfix-2.0.x
  * 
  * Features
  *  BLTouch Bilinear Bed Leveling
  *  Avoids Binder Clips
+ *  Sensorless Homing
  * 
  * Designed for 
- *  Ender3 Chassis
- *  + SKR E3 Mini 1.0 Board
- *  + ZestyNimble 
+ *  CR-10 Dual Z Chassis
+ *  + SKR 1.4 Turbo TMC2209
+ *  + V6 
  *  + BLTouch
- *  + 3DFused YAxis
  *  + Glass Bed with Binder Clips
  */
 
@@ -88,7 +88,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(andy, Nimbler3 bugfix-2.0.x)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(andy, CR10S bugfix-2.0.x)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -121,13 +121,13 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 2
+#define SERIAL_PORT -1
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_2 -1
+#define SERIAL_PORT_2 0
 
 /**
  * This setting determines the communication speed of the printer.
@@ -145,11 +145,11 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_SKR_MINI_E3_V2_0
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Nimbler3"
+#define CUSTOM_MACHINE_NAME "CR10"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -433,7 +433,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 13   // Trianglelab NTC 100K ohm B3950 Thermistor Cartridge
+#define TEMP_SENSOR_0 1   // Stock Creality Thermistor
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -517,10 +517,10 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-  // Creality Nimbler3
-    #define DEFAULT_Kp 16.96
-    #define DEFAULT_Ki 1.37
-    #define DEFAULT_Kd 52.69
+  // CR-10 Hotend
+    #define DEFAULT_Kp 9.40
+    #define DEFAULT_Ki 0.78
+    #define DEFAULT_Kd 28.45
   #endif
 #endif // PIDTEMP
 
@@ -678,7 +678,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -705,11 +705,11 @@
 #define Z_DRIVER_TYPE  TMC2209
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
-//#define Z2_DRIVER_TYPE A4988
+#define Z2_DRIVER_TYPE TMC2209
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
 #define E0_DRIVER_TYPE TMC2209
-//#define E1_DRIVER_TYPE A4988
+//#define E1_DRIVER_TYPE TMC2209
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
@@ -763,7 +763,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 2700 } // Andy: set the Nimbler3 ESteps in firmware
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -824,8 +824,7 @@
   #endif
 #endif
 
-//#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
-#define DEFAULT_EJERK 0.6  // andy: for nimble https://zestytechnology.readthedocs.io/en/latest/nimble/tuning.html
+#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
 
 /**
  * Junction Deviation Factor
@@ -864,10 +863,10 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING
+#define USE_PROBE_FOR_Z_HOMING
 
 /**
  * Z_MIN_PROBE_PIN
@@ -885,6 +884,7 @@
  *      - normally-open switches to 5V and D32.
  */
 //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
+#define Z_MIN_PROBE_PIN P0_10 // https://github.com/bigtreetech/BIGTREETECH-SKR-V1.3/issues/207
 
 /**
  * Probe Type
@@ -1011,11 +1011,11 @@
  */
 //#define NOZZLE_TO_PROBE_OFFSET { 33, 8, 0 }
 // andy: NOZZLE_TO_PROBE_OFFSET doesn't work see absolute probe locations in Configuration_adv.h MIN_PROBE_EDGE_LEFT, MIN_PROBE_EDGE_RIGHT, etc
-#define NOZZLE_TO_PROBE_OFFSET { 35, 2, -4.5 }
+#define NOZZLE_TO_PROBE_OFFSET { -50, -35, -3.5 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 20
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 10000
@@ -1111,14 +1111,14 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_X_DIR false
+#define INVERT_Y_DIR false
+#define INVERT_Z_DIR true
 
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true
+#define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1147,8 +1147,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 235
-#define Y_BED_SIZE 235
+#define X_BED_SIZE 310
+#define Y_BED_SIZE 320
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1156,7 +1156,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 250
+#define Z_MAX_POS 400
 
 /**
  * Software Endstops
@@ -1806,7 +1806,7 @@
 //
 //  Set this option if CLOCKWISE causes values to DECREASE
 //
-//#define REVERSE_ENCODER_DIRECTION
+#define REVERSE_ENCODER_DIRECTION
 
 //
 // This option reverses the encoder direction for navigating LCD menus.
@@ -2086,7 +2086,7 @@
 //#define FYSETC_MINI_12864_X_X    // Type C/D/E/F. No tunable RGB Backlight by default
 //#define FYSETC_MINI_12864_1_2    // Type C/D/E/F. Simple RGB Backlight (always on)
 //#define FYSETC_MINI_12864_2_0    // Type A/B. Discreet RGB Backlight
-//#define FYSETC_MINI_12864_2_1    // Type A/B. NeoPixel RGB Backlight
+#define FYSETC_MINI_12864_2_1    // Type A/B. NeoPixel RGB Backlight
 //#define FYSETC_GENERIC_12864_1_1 // Larger display with basic ON/OFF backlight.
 
 //
@@ -2096,7 +2096,7 @@
 // This is RAMPS-compatible using a single 10-pin connector.
 // (For CR-10 owners who want to replace the Melzi Creality board but retain the display)
 //
-#define CR10_STOCKDISPLAY
+//#define CR10_STOCKDISPLAY
 
 //
 // Ender-2 OEM display, a variant of the MKS_MINI_12864
@@ -2383,16 +2383,16 @@
 #endif
 
 // Support for Adafruit NeoPixel LED driver
-//#define NEOPIXEL_LED
+#define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
   #define NEOPIXEL_TYPE   NEO_GRBW // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-  #define NEOPIXEL_PIN     4       // LED driving pin
+  //#define NEOPIXEL_PIN     4       // LED driving pin
   //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN    5
   #define NEOPIXEL_PIXELS 30       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
-  //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
+  #define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 
   // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
   //#define NEOPIXEL2_SEPARATE
@@ -2406,7 +2406,7 @@
 
   // Use a single NeoPixel LED for static (background) lighting
   //#define NEOPIXEL_BKGD_LED_INDEX  0               // Index of the LED to use
-  //#define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
+  #define NEOPIXEL_BKGD_COLOR { 255, 255, 255, 0 } // R, G, B, W
 #endif
 
 /**
